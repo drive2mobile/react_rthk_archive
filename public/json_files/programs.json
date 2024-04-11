@@ -1,0 +1,46 @@
+{
+    "radio1": [
+        {
+            "program_name": "環看天下",
+            "program_id": "global_analysis",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "放眼世界",
+            "program_id": "international_feature",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "動感天地",
+            "program_id": "sports",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "報章摘要",
+            "program_id": "newspaper",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "晨早新聞天地",
+            "program_id": "hktoday",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "財經華爾街",
+            "program_id": "finance_morning_show",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "大自然之聲",
+            "program_id": "sound_of_nature",
+            "station_id": "radio1",
+            "station_name": "R1"
+        }
+    ]
+}

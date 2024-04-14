@@ -102,7 +102,11 @@ const SelectProgram = () => {
                             <div style={{width:'100%', height:'calc(100dvh - 50px - 58px)', overflow: 'auto', scrollbarWidth: 'none'}}>
 
                                 {displayList.length > 0 && displayList.map((item, index) => (
-                                    <div style={{width:'100%', height:'58px', display:'flex', flexDirection:'column', alignItems:'center'}} key={index}>
+                                    <div style={{width:'100%', height:'58px', display:'flex', flexDirection:'column', alignItems:'center'}} 
+                                        key={index}
+                                        onClick={() => { navigate(`/selectdate?programname=${item['program_name']}&stationname=${item['station_name']}&`+
+                                                                    `programid=${item['program_id']}&stationid=${item['station_id']}`)}}
+                                    >
 
                                         <div style={{width:'calc(100% - 16px)', height:'50px', display:'flex', flexDirection:'row', 
                                                 backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2', lineHeight:'50px'}}>

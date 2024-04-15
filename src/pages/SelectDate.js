@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Form, Button, Fade } from 'react-bootstrap';
+import { Form, Button, Fade, ProgressBar } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AppBar from '../ui_components/AppBar';
 import styles from './styles/SelectDateStyle.module.css';
@@ -11,7 +11,7 @@ import { selectDate, selectProgram } from "../utilies/Locale";
 import { downloadM3u8Suffix, downloadURLSample } from "../utilies/Constants";
 
 const SelectDate = () => {
-    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
+    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/selectprogram', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
     var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px'}} />;
     const navigate = useNavigate();
     const urlParams = new URLSearchParams(window.location.search);
@@ -32,11 +32,13 @@ const SelectDate = () => {
 
     const [selectedDateIndex, setSelectedDateIndex] = useState(-5);
     const [isDownloading, setIsDownloading] = useState(false);
+    const [isDownloadFinish, setIsDownloadFinish] = useState(false);
     const isCancelDownload = useRef(false);
     const [downloadProgress, setDownloadProgress] = useState(0);
 
     const [triggerRefreshDate, setTriggerRefreshDate] = useState(false);
     const [triggerDownload, setTriggerDownload] = useState(false);
+    const [refreshDateCount, setRefreshDateCount] = useState(7);
 
     useEffect(() => {
         initialize();
@@ -92,7 +94,7 @@ const SelectDate = () => {
         var dateCount = 0;
         var successCount = 0;
 
-        while(successCount <= 7)
+        while(successCount <= refreshDateCount)
         {
             const date = new Date(datePivot);
             date.setDate(date.getDate() - dateCount); 
@@ -101,10 +103,29 @@ const SelectDate = () => {
 
             var isSuccess = null;
             var currDownloadURL = downloadURL.replace('DATE', formattedDate) + downloadM3u8Suffix;
+            var durationInSecond = 0;
+            var segmentCount = 0;
+
             try
             {
                 const response = await axios.get(currDownloadURL);
-                await new Promise(resolve => setTimeout(resolve, 50));
+                const content = response.data;
+
+                var m3u8Array = content.toString().split('\n');
+                
+                for (var i=0 ; i<m3u8Array.length ; i++)
+                {
+                    if (m3u8Array[i].substring(0, 7) == '#EXTINF')
+                    {
+                        const tempSplitArr = m3u8Array[i].split(':');
+                        durationInSecond += Math.round(parseFloat(tempSplitArr[1].substring(0, tempSplitArr[1].length-1)));
+                    }
+
+                    if (m3u8Array[i].substring(0, 7) == 'segment')
+                        segmentCount++;
+                }
+
+                // await new Promise(resolve => setTimeout(resolve, 50));
                 isSuccess = true;
             }
             catch
@@ -114,15 +135,21 @@ const SelectDate = () => {
 
             if (isSuccess)
             {
-                if (successCount == 7)
+                if (successCount == refreshDateCount)
                     setDatePivot(date);
                 else
-                    newDateList.push(formattedDate); 
+                {
+                    const minutes = Math.floor(durationInSecond / 60);
+                    const seconds = (durationInSecond % 60).toString().padStart(2, '0');
+
+                    const fileSize = (segmentCount * 120 / 1024).toFixed(2);
+                    newDateList.push({"date": formattedDate, "duration": `${minutes}:${seconds}`, "size":fileSize}); 
+                }       
 
                 successCount++;
             }
         }
-        setDateList(newDateList);
+        setDateList(prevArr => prevArr.concat(newDateList));
     }
 
     async function shareLink()
@@ -152,38 +179,55 @@ const SelectDate = () => {
         setIsDownloading(true);
         setDownloadProgress(0);
 
-        const url = downloadURL.replace('DATE', dateList[selectedDateIndex]) + downloadM3u8Suffix;
-        const response = await axios.get(url);
-        const content = response.data;
-
-        var splitArray = content.toString().split('\n');
         var tsFileUrls = [];
-        for (var i=0 ; i<splitArray.length ; i++)
+
+        try
         {
-            if (splitArray[i].substring(0, 7) == 'segment')
-                tsFileUrls.push(splitArray[i]);
+            const url = downloadURL.replace('DATE', dateList[selectedDateIndex]['date']) + downloadM3u8Suffix;
+            const response = await axios.get(url);
+            const content = response.data;
+    
+            var splitArray = content.toString().split('\n');
+            
+            for (var i=0 ; i<splitArray.length ; i++)
+            {
+                if (splitArray[i].substring(0, 7) == 'segment')
+                    tsFileUrls.push(splitArray[i]);
+            }
         }
-
-        var tsFiles = [];
-        for (var i=0 ; i<tsFileUrls.length ; i++)
+        catch
         {
-            if (isCancelDownload.current == false)
-            {
-                const url1 = downloadURL.replace('DATE', dateList[selectedDateIndex]) + tsFileUrls[i];
-                const response1 = await axios.get(url1, { responseType: 'arraybuffer' });
-                tsFiles.push(response1.data);
-                setDownloadProgress(parseInt(i * 100 / tsFileUrls.length));
 
-                await new Promise(resolve => setTimeout(resolve, 100));
-            }
-            else
-            {
-                break;
-            }
-            // if (i==10)
-            //     break;
         }
         
+
+        var tsFiles = [];
+        try
+        {
+            for (var i=0 ; i<tsFileUrls.length ; i++)
+            {
+                if (isCancelDownload.current == false)
+                {
+                    const url1 = downloadURL.replace('DATE', dateList[selectedDateIndex]['date']) + tsFileUrls[i];
+                    const response1 = await axios.get(url1, { responseType: 'arraybuffer' });
+                    tsFiles.push(response1.data);
+                    setDownloadProgress(parseInt(i * 100 / tsFileUrls.length));
+    
+                    // await new Promise(resolve => setTimeout(resolve, 500));
+                }
+                else
+                {
+                    break;
+                }
+                // if (i==10)
+                //     break;
+            }
+        }
+        catch
+        {
+
+        }
+       
         if (isCancelDownload.current == false)
         { 
             try 
@@ -195,7 +239,7 @@ const SelectDate = () => {
                     mergedBlobParts.push(new Blob([tsFiles[i]], { type: 'video/mp2t' }));
                 }
     
-                const dateStr = dateList[selectedDateIndex];
+                const dateStr = dateList[selectedDateIndex]['date'];
                 const mergedBlob = new Blob(mergedBlobParts, { type: 'video/mp2t' });
                 const downloadUrl = URL.createObjectURL(mergedBlob);
                 const downloadLink = document.createElement('a');
@@ -203,6 +247,7 @@ const SelectDate = () => {
                 downloadLink.download = `${programName} ${dateStr.substring(6,8)}-${dateStr.substring(4,6)}-${dateStr.substring(0,4)}.ts`;
                 downloadLink.click();
                 setDownloadProgress(100);
+                setIsDownloadFinish(true);
             } 
             catch (error) 
             {
@@ -230,21 +275,17 @@ const SelectDate = () => {
             <div style={{height:'100dvh'}}>
 
                 {/* ===== APP BAR ===== */}
-                <AppBar leftIcon={backBtn} Header={selectDate[lang]} rightIcon={shareBtn}></AppBar>
+                <AppBar leftIcon={backBtn} Header={programName + " " + stationName} rightIcon={shareBtn}></AppBar>
 
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
                     <div style={{height:'calc(100dvh - 50px)'}}>
                         <div style={{height:'100%', width:'100%'}}>
 
-                            <Button onClick={() => {console.log(datePivot.toISOString().slice(0, 10).replace(/-/g, ''));}}>Test</Button>
-                            <Button onClick={() => {setTriggerRefreshDate(true)}}>Refresh</Button>
+                            {/* <Button onClick={() => {console.log(datePivot.toISOString().slice(0, 10).replace(/-/g, ''));}}>Test</Button>
+                            <Button onClick={() => {setTriggerRefreshDate(true)}}>Refresh</Button> */}
                             {/* ==== PROGRAM NAME ===== */}
-                            <div style={{width:'100%', height:'58px'}}>
-                                <div style={{width:'calc(100% - 16px)', height:'50px', display:'flex', flexDirection:'row',
-                                    backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2', lineHeight:'50px'}}>
-                                    <div style={{width:'80%'}}>{programName}</div>
-                                    <div style={{width:'20%'}}>{stationName}</div>
-                                </div>
+                            <div style={{width:'100%', height:'50px', lineHeight:'50px'}}>
+                                <div style={{marginLeft:'15px'}}>選擇日期/期數：</div>
                             </div>
 
                             {/* ===== DISPLAY LIST ==== */}
@@ -261,28 +302,62 @@ const SelectDate = () => {
                                             {width:'calc(100% - 16px)', height:'50px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2'}}
                                             onClick={() => {
                                                 if (isDownloading == false)
+                                                {
                                                     setSelectedDateIndex(index);
+                                                    setIsDownloadFinish(false);
+                                                } 
                                             }}
                                         >
-                                            <div style={{width:'100%', lineHeight:'50px', paddingLeft:'15px', paddingRight:'4px'}}>
-                                                <div style={{width:'80%'}}>
-                                                    {`${item.substring(6,8)}-${item.substring(4,6)}-${item.substring(0,4)}`}
+                                            <div style={{width:'100%', lineHeight:'50px', display:'flex', flexDirection:'row'}}>
+                                                <div style={{width:'75%', paddingLeft:'20px'}}>
+                                                    {`${item['date'].substring(6,8)}-${item['date'].substring(4,6)}-${item['date'].substring(0,4)}`}
+                                                </div>
+                                                <div style={{width:'25%', display:'flex', flexDirection:'column'}}>
+                                                    <div style={{lineHeight:'25px', fontSize:'14px'}}>
+                                                        <Icon.Clock style={{width:'12px', height:'12px', padding:'0px', margin:'0px'}}></Icon.Clock>&nbsp;
+                                                        {item['duration']}
+                                                    </div>
+                                                    <div style={{lineHeight:'25px', fontSize:'14px'}}>
+                                                        <Icon.FileEarmarkText style={{width:'12px', height:'12px'}}></Icon.FileEarmarkText>&nbsp;
+                                                        {item['size']} Mb
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            {(index == selectedDateIndex)&& 
-                                                <div style={{width:'100%', height:'100%'}}>
-                                                    <div>
+                                            {index == selectedDateIndex && 
+                                            <div style={{width:'100%', height:'100px'}}>
+                                                {isDownloading == false && isDownloadFinish == false &&
+                                                    <div style={{height:'100%', lineHeight:'100px', textAlign:'center'}}>
                                                         <Button variant="light" style={{width:'20%', height:'40px'}} 
                                                         onClick={() => setTriggerDownload(true)}>下載</Button>
-                                                        <Button variant="light" style={{width:'20%', height:'40px'}} 
-                                                        onClick={() => isCancelDownload.current = true}>Cancel</Button>
                                                     </div>
-                                                    <div>
-                                                        {downloadProgress}
+                                                }
+                                                {isDownloading == true && isDownloadFinish == false &&
+                                                    <div style={{height:'100%', textAlign:'center'}}>
+                                                        <div style={{lineHeight:'30px', fontSize:'14px'}}>
+                                                            下載中，請勿離開頁面
+                                                        </div>
+                                                        <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
+                                                            <ProgressBar variant="success" now={downloadProgress} style={{width:'60%'}} />
+                                                        </div>
+                                                        <div style={{lineHeight:'40px', textAlign:'center'}}>
+                                                            <Button variant="light" style={{width:'20%', height:'35px'}} 
+                                                            onClick={() => isCancelDownload.current = true}>取消</Button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                
+                                                }
+                                                {isDownloading == false && isDownloadFinish == true &&
+                                                    <div style={{height:'100%', textAlign:'center'}}>
+                                                        <div style={{lineHeight:'30px', fontSize:'14px'}}>
+                                                            下載完成
+                                                        </div>
+                                                        <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
+                                                            <ProgressBar variant="success" now={100} style={{width:'60%'}} />
+                                                        </div>
+                                                    </div>  
+                                                }
+                                                    
+                                            </div>
                                             }
 
                                         </div>    
@@ -290,6 +365,17 @@ const SelectDate = () => {
                                     </div>
                                 ))}
 
+                                <div style={{width:'100%', textAlign:'center', marginBottom:'10px'}}>
+                                    <Button variant="light" style={{marginRight:'5px'}} onClick={()=>{
+                                        setRefreshDateCount(7);
+                                        setTriggerRefreshDate(true);
+                                    }}>載入更多(7期)</Button>
+                                    <Button variant="light" style={{marginLeft:'5px'}} onClick={()=>{
+                                        setRefreshDateCount(30);
+                                        setTriggerRefreshDate(true)
+                                    }}>載入更多(30期)</Button>
+                                </div>
+                                
                             </div>
 
                         </div>

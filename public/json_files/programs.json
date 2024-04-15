@@ -1,8 +1,26 @@
 {
     "radio1": [
         {
-            "program_name": "環看天下",
-            "program_id": "global_analysis",
+            "program_name": "哈林奭失眠",
+            "program_id": "sleepless_trio",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "大自然之聲",
+            "program_id": "sound_of_nature",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "財經華爾街",
+            "program_id": "finance_morning_show",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "動感天地",
+            "program_id": "sports",
             "station_id": "radio1",
             "station_name": "R1"
         },
@@ -13,8 +31,8 @@
             "station_name": "R1"
         },
         {
-            "program_name": "動感天地",
-            "program_id": "sports",
+            "program_name": "環看天下",
+            "program_id": "global_analysis",
             "station_id": "radio1",
             "station_name": "R1"
         },
@@ -31,14 +49,74 @@
             "station_name": "R1"
         },
         {
-            "program_name": "財經華爾街",
-            "program_id": "finance_morning_show",
+            "program_name": "千禧年代",
+            "program_id": "HK2000",
             "station_id": "radio1",
             "station_name": "R1"
         },
         {
-            "program_name": "大自然之聲",
-            "program_id": "sound_of_nature",
+            "program_name": "一桶金",
+            "program_id": "Moneyprogram",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "開心日報",
+            "program_id": "happydaily",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "午間新聞天地",
+            "program_id": "12oclocknews",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "精靈一點",
+            "program_id": "healthpedia",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "港台體壇",
+            "program_id": "sportinrthk",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "一桶金之財經新思維",
+            "program_id": "Finance_New_Concept",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "自由風自由PHONE",
+            "program_id": "openline_openview",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "傍晚新聞天地",
+            "program_id": "6oclocknews",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "守下留情",
+            "program_id": "seesaw",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "晚間新聞天地",
+            "program_id": "eveningnews",
+            "station_id": "radio1",
+            "station_name": "R1"
+        },
+        {
+            "program_name": "講東講西",
+            "program_id": "Free_as_the_wind",
             "station_id": "radio1",
             "station_name": "R1"
         }

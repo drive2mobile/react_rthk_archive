@@ -33,11 +33,11 @@ const SelectProgram = () => {
 
     async function initialize()
     {
-        const response = await fetch('/json_files/programs.json');
+        const response = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json`);
         const newProgramList = await response.json();
         setProgramList(newProgramList);
 
-        const responseStation = await fetch('/json_files/stations.json');
+        const responseStation = await fetch(`${process.env.PUBLIC_URL}/json_files/stations.json`);
         const newStationList = await responseStation.json();
         setStationList(newStationList);
 
@@ -110,8 +110,11 @@ const SelectProgram = () => {
 
                                         <div style={{width:'calc(100% - 16px)', height:'50px', display:'flex', flexDirection:'row', 
                                                 backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2', lineHeight:'50px'}}>
-                                            <div style={{width:'20%'}}>
-                                                <img src="text.jpg" style={{ width: '100%', height:'auto' }}></img>
+                                            <div style={{width:'20%', height:'50px', display:'flex', flexDirection:'column', 
+                                                    alignItems:'center', padding:'4px'}}>
+                                                <img src={`${process.env.PUBLIC_URL}/images/${item['program_id']}.jpg`} 
+                                                    style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
+                                                ></img>
                                             </div>
                                             <div style={{width:'60%'}}>
                                                 {item['program_name']}

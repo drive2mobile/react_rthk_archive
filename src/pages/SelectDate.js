@@ -11,13 +11,13 @@ import { selectDate, selectProgram } from "../utilies/Locale";
 import { downloadM3u8Suffix, downloadURLSample } from "../utilies/Constants";
 
 const SelectDate = () => {
-    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/selectprogram', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
-    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px'}} />;
     const navigate = useNavigate();
     const urlParams = new URLSearchParams(window.location.search);
     const[lang, setLang] = useState('tc');
 
     const [programName, setProgramName] = useState('');
+    const [programId, setProgramId] = useState('');
+    const [weekday, setWeekday] = useState('');
     const [stationName, setStationName] = useState('');
     const [downloadURL, setDownloadURL] = useState('');
 
@@ -39,6 +39,21 @@ const SelectDate = () => {
     const [triggerRefreshDate, setTriggerRefreshDate] = useState(false);
     const [triggerDownload, setTriggerDownload] = useState(false);
     const [refreshDateCount, setRefreshDateCount] = useState(7);
+
+    var backBtn = <Icon.ArrowLeft onClick={() => 
+        {
+            if (isDownloading == true)
+            {
+                setToastText('請等候下載完成');
+                setToastTrigger(prev => prev+1);
+            }
+            else
+            {
+                navigate('/selectprogram', { replace: true })
+            }              
+        }
+    } style={{width:'50px', height:'50px', padding:'10px'}} />;
+    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px'}} />;
 
     useEffect(() => {
         initialize();
@@ -78,14 +93,16 @@ const SelectDate = () => {
         const newStationName = urlParams.has('stationname') ? urlParams.get('stationname') : '';
         const newProgramId = urlParams.has('programid') ? urlParams.get('programid') : '';
         const newStationId = urlParams.has('stationid') ? urlParams.get('stationid') : '';
+        const newWeekday = urlParams.has('weekday') ? urlParams.get('weekday') : '';
         setProgramName(newProgramName);
         setStationName(newStationName);
+        setProgramId(newProgramId);
+        setWeekday(newWeekday);
 
         var newDownloadURL = downloadURLSample.replace('STATION', newStationId);
         newDownloadURL = newDownloadURL.replace('PROGRAM', newProgramId);
         setDownloadURL(newDownloadURL);
 
-        setShowContent(true);
         setTriggerRefreshDate(true);
     }
 
@@ -100,11 +117,15 @@ const SelectDate = () => {
             date.setDate(date.getDate() - dateCount); 
             dateCount = dateCount + 1;
             const formattedDate = date.toISOString().slice(0, 10).replace(/-/g, '');
+            const currWeekday = date.getDay();
 
             var isSuccess = null;
             var currDownloadURL = downloadURL.replace('DATE', formattedDate) + downloadM3u8Suffix;
             var durationInSecond = 0;
             var segmentCount = 0;
+
+            if (weekday.toString().includes(currWeekday) == false)
+                continue;
 
             try
             {
@@ -150,6 +171,8 @@ const SelectDate = () => {
             }
         }
         setDateList(prevArr => prevArr.concat(newDateList));
+        
+        setShowContent(true);
     }
 
     async function shareLink()
@@ -279,106 +302,106 @@ const SelectDate = () => {
 
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
                     <div style={{height:'calc(100dvh - 50px)'}}>
-                        <div style={{height:'100%', width:'100%'}}>
 
-                            {/* <Button onClick={() => {console.log(datePivot.toISOString().slice(0, 10).replace(/-/g, ''));}}>Test</Button>
-                            <Button onClick={() => {setTriggerRefreshDate(true)}}>Refresh</Button> */}
-                            {/* ==== PROGRAM NAME ===== */}
-                            <div style={{width:'100%', height:'50px', lineHeight:'50px'}}>
-                                <div style={{marginLeft:'15px'}}>選擇日期/期數：</div>
+                        {/* ==== PROGRAM NAME ===== */}
+                        <div style={{width:'100%', height:'120px', display:'flex', flexDirection:'row', alignItems:'center'}}>
+                            <div style={{width:'40%'}}>
+                                <img src={`${process.env.PUBLIC_URL}/images/${programId}.jpg`} 
+                                    style={{height:'120px', width:'auto', padding:'10px', borderRadius:'15px'}}/>
                             </div>
-
-                            {/* ===== DISPLAY LIST ==== */}
-                            <div style={{width:'100%', height:'calc(100dvh - 50px - 50px)', overflow: 'auto', scrollbarWidth: 'none'}}>
-
-                                {dateList.length > 0 && dateList.map((item, index) => (
-                                    <div key={index} style={index == selectedDateIndex ? 
-                                        {width:'100%', height:'158px', display:'flex', flexDirection:'column', alignItems:'center'} :
-                                        {width:'100%', height:'58px', display:'flex', flexDirection:'column', alignItems:'center'}} 
-                                    >
-
-                                        <div style={index == selectedDateIndex ?
-                                            {width:'calc(100% - 16px)', height:'150px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2'} :
-                                            {width:'calc(100% - 16px)', height:'50px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2'}}
-                                            onClick={() => {
-                                                if (isDownloading == false)
-                                                {
-                                                    setSelectedDateIndex(index);
-                                                    setIsDownloadFinish(false);
-                                                } 
-                                            }}
-                                        >
-                                            <div style={{width:'100%', lineHeight:'50px', display:'flex', flexDirection:'row'}}>
-                                                <div style={{width:'75%', paddingLeft:'20px'}}>
-                                                    {`${item['date'].substring(6,8)}-${item['date'].substring(4,6)}-${item['date'].substring(0,4)}`}
-                                                </div>
-                                                <div style={{width:'25%', display:'flex', flexDirection:'column'}}>
-                                                    <div style={{lineHeight:'25px', fontSize:'14px'}}>
-                                                        <Icon.Clock style={{width:'12px', height:'12px', padding:'0px', margin:'0px'}}></Icon.Clock>&nbsp;
-                                                        {item['duration']}
-                                                    </div>
-                                                    <div style={{lineHeight:'25px', fontSize:'14px'}}>
-                                                        <Icon.FileEarmarkText style={{width:'12px', height:'12px'}}></Icon.FileEarmarkText>&nbsp;
-                                                        {item['size']} Mb
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            {index == selectedDateIndex && 
-                                            <div style={{width:'100%', height:'100px'}}>
-                                                {isDownloading == false && isDownloadFinish == false &&
-                                                    <div style={{height:'100%', lineHeight:'100px', textAlign:'center'}}>
-                                                        <Button variant="light" style={{width:'20%', height:'40px'}} 
-                                                        onClick={() => setTriggerDownload(true)}>下載</Button>
-                                                    </div>
-                                                }
-                                                {isDownloading == true && isDownloadFinish == false &&
-                                                    <div style={{height:'100%', textAlign:'center'}}>
-                                                        <div style={{lineHeight:'30px', fontSize:'14px'}}>
-                                                            下載中，請勿離開頁面
-                                                        </div>
-                                                        <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
-                                                            <ProgressBar variant="success" now={downloadProgress} style={{width:'60%'}} />
-                                                        </div>
-                                                        <div style={{lineHeight:'40px', textAlign:'center'}}>
-                                                            <Button variant="light" style={{width:'20%', height:'35px'}} 
-                                                            onClick={() => isCancelDownload.current = true}>取消</Button>
-                                                        </div>
-                                                    </div>
-                                                }
-                                                {isDownloading == false && isDownloadFinish == true &&
-                                                    <div style={{height:'100%', textAlign:'center'}}>
-                                                        <div style={{lineHeight:'30px', fontSize:'14px'}}>
-                                                            下載完成
-                                                        </div>
-                                                        <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
-                                                            <ProgressBar variant="success" now={100} style={{width:'60%'}} />
-                                                        </div>
-                                                    </div>  
-                                                }
-                                                    
-                                            </div>
-                                            }
-
-                                        </div>    
-
-                                    </div>
-                                ))}
-
-                                <div style={{width:'100%', textAlign:'center', marginBottom:'10px'}}>
-                                    <Button variant="light" style={{marginRight:'5px'}} onClick={()=>{
-                                        setRefreshDateCount(7);
-                                        setTriggerRefreshDate(true);
-                                    }}>載入更多(7期)</Button>
-                                    <Button variant="light" style={{marginLeft:'5px'}} onClick={()=>{
-                                        setRefreshDateCount(30);
-                                        setTriggerRefreshDate(true)
-                                    }}>載入更多(30期)</Button>
-                                </div>
-                                
-                            </div>
-
+                            <div style={{width:'60%'}}>選擇日期/期數：</div>
                         </div>
+
+                        {/* ===== DISPLAY LIST ==== */}
+                        <div style={{width:'100%', height:'calc(100dvh - 50px - 120px)', overflow: 'auto', scrollbarWidth: 'none'}}>
+
+                            {dateList.length > 0 && dateList.map((item, index) => (
+                                <div key={index} style={index == selectedDateIndex ? 
+                                    {width:'100%', height:'158px', display:'flex', flexDirection:'column', alignItems:'center'} :
+                                    {width:'100%', height:'58px', display:'flex', flexDirection:'column', alignItems:'center'}} 
+                                >
+
+                                    <div style={index == selectedDateIndex ?
+                                        {width:'calc(100% - 16px)', height:'150px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2'} :
+                                        {width:'calc(100% - 16px)', height:'50px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2'}}
+                                        onClick={() => {
+                                            if (isDownloading == false)
+                                            {
+                                                setSelectedDateIndex(index);
+                                                setIsDownloadFinish(false);
+                                            } 
+                                        }}
+                                    >
+                                        <div style={{width:'100%', lineHeight:'50px', display:'flex', flexDirection:'row'}}>
+                                            <div style={{width:'75%', paddingLeft:'20px'}}>
+                                                {`${item['date'].substring(6,8)}-${item['date'].substring(4,6)}-${item['date'].substring(0,4)}`}
+                                            </div>
+                                            <div style={{width:'25%', display:'flex', flexDirection:'column'}}>
+                                                <div style={{lineHeight:'25px', fontSize:'14px'}}>
+                                                    <Icon.Clock style={{width:'12px', height:'12px', padding:'0px', margin:'0px'}}></Icon.Clock>&nbsp;
+                                                    {item['duration']}
+                                                </div>
+                                                <div style={{lineHeight:'25px', fontSize:'14px'}}>
+                                                    <Icon.FileEarmarkText style={{width:'12px', height:'12px'}}></Icon.FileEarmarkText>&nbsp;
+                                                    {item['size']} Mb
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {index == selectedDateIndex && 
+                                        <div style={{width:'100%', height:'100px'}}>
+                                            {isDownloading == false && isDownloadFinish == false &&
+                                                <div style={{height:'100%', lineHeight:'100px', textAlign:'center'}}>
+                                                    <Button variant="light" style={{width:'20%', height:'40px'}} 
+                                                    onClick={() => setTriggerDownload(true)}>下載</Button>
+                                                </div>
+                                            }
+                                            {isDownloading == true && isDownloadFinish == false &&
+                                                <div style={{height:'100%', textAlign:'center'}}>
+                                                    <div style={{lineHeight:'30px', fontSize:'14px'}}>
+                                                        下載中，請勿離開頁面
+                                                    </div>
+                                                    <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
+                                                        <ProgressBar variant="success" now={downloadProgress} style={{width:'60%'}} />
+                                                    </div>
+                                                    <div style={{lineHeight:'40px', textAlign:'center'}}>
+                                                        <Button variant="light" style={{width:'20%', height:'35px'}} 
+                                                        onClick={() => isCancelDownload.current = true}>取消</Button>
+                                                    </div>
+                                                </div>
+                                            }
+                                            {isDownloading == false && isDownloadFinish == true &&
+                                                <div style={{height:'100%', textAlign:'center'}}>
+                                                    <div style={{lineHeight:'30px', fontSize:'14px'}}>
+                                                        下載完成
+                                                    </div>
+                                                    <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
+                                                        <ProgressBar variant="success" now={100} style={{width:'60%'}} />
+                                                    </div>
+                                                </div>  
+                                            }
+                                                
+                                        </div>
+                                        }
+
+                                    </div>    
+
+                                </div>
+                            ))}
+
+                            <div style={{width:'100%', textAlign:'center', marginBottom:'10px'}}>
+                                <Button variant="light" style={{marginRight:'5px'}} onClick={()=>{
+                                    setRefreshDateCount(7);
+                                    setTriggerRefreshDate(true);
+                                }}>載入更多(7期)</Button>
+                                <Button variant="light" style={{marginLeft:'5px'}} onClick={()=>{
+                                    setRefreshDateCount(30);
+                                    setTriggerRefreshDate(true)
+                                }}>載入更多(30期)</Button>
+                            </div>
+                            
+                        </div>
+
                     </div>
                 </Fade>
             </div>

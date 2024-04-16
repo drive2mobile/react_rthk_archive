@@ -1,3 +1,22 @@
 [
-    "R1", "R2", "R3", "R4", "R5"
+    {
+        "station_id": "radio1",
+        "station_name_tc": "第一台"
+    },
+    {
+        "station_id": "radio2",
+        "station_name_tc": "第二台"
+    },    
+    {
+        "station_id": "radio3",
+        "station_name_tc": "第三台"
+    },    
+    {
+        "station_id": "radio4",
+        "station_name_tc": "第四台"
+    },    
+    {
+        "station_id": "radio5",
+        "station_name_tc": "第五台"
+    }
 ]

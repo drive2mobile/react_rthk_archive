@@ -1,0 +1,14 @@
+[
+    {
+        "weekday_id": "1 2 3 4 5",
+        "weekday_name_tc": "星期一至五"
+    },
+    {
+        "weekday_id": "6",
+        "weekday_name_tc": "星期六"
+    },
+    {
+        "weekday_id": "0",
+        "weekday_name_tc": "星期日"
+    }
+]

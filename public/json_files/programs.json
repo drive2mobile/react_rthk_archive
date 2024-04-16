@@ -9,6 +9,30 @@
             "time":"0330"
         },
         {
+            "program_name": "哈林奭失眠",
+            "program_id": "sleepless_trio",
+            "station_id": "radio1",
+            "station_name": "R1",
+            "weekday": "1",
+            "time":"0000"
+        },
+        {
+            "program_name": "藍地球(精華版)",
+            "program_id": "blue_globe_special",
+            "station_id": "radio1",
+            "station_name": "R1",
+            "weekday": "1",
+            "time":"0200"
+        },
+        {
+            "program_name": "月光書情",
+            "program_id": "reading_by_moonlight",
+            "station_id": "radio1",
+            "station_name": "R1",
+            "weekday": "1",
+            "time":"0230"
+        },
+        {
             "program_name": "清晨爽利",
             "program_id": "fresh_morning",
             "station_id": "radio1",
@@ -165,7 +189,7 @@
             "program_id": "those_were_the_days",
             "station_id": "radio1",
             "station_name": "R1",
-            "weekday": "6",
+            "weekday": "2 3 4 5 6",
             "time":"0000"
         },
         {
@@ -173,7 +197,7 @@
             "program_id": "Hongkongstory",
             "station_id": "radio1",
             "station_name": "R1",
-            "weekday": "6",
+            "weekday": "2 3 4 5 6",
             "time":"0100"
         },
         {
@@ -181,7 +205,7 @@
             "program_id": "cibs_we_broadcast",
             "station_id": "radio1",
             "station_name": "R1",
-            "weekday": "6",
+            "weekday": "2 3 4 5 6",
             "time":"0130"
         },
         {
@@ -432,5 +456,328 @@
             "weekday": "0",
             "time":"2220"
         }
+    ],
+    "radio2":[
+        {
+            "program_name": "同處一室",
+            "program_id": "inclusivesociety",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"0000"
+        },
+        {
+            "program_name": "音樂關係",
+            "program_id": "music_companion",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"0100"
+        },
+        {
+            "program_name": "輕談淺唱不夜天",
+            "program_id": "keepuco",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0 1 2 3 4 5 6",
+            "time":"0200"
+        },
+        {
+            "program_name": "Beautiful Sunday",
+            "program_id": "beautifulsunday",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"0600"
+        },
+        {
+            "program_name": "玩玩星期天",
+            "program_id": "sundayplayground",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"0800"
+        },
+        {
+            "program_name": "Sun 生活",
+            "program_id": "sunny_day",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"1000"
+        },
+        {
+            "program_name": "生活進行式",
+            "program_id": "blithesometime",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"1200"
+        },
+        {
+            "program_name": "家有愛寵",
+            "program_id": "love_pets",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"1300"
+        },
+        {
+            "program_name": "好心情經理人",
+            "program_id": "agent_alex",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"1400"
+        },
+        {
+            "program_name": "Teen空海闊",
+            "program_id": "Teenschoice",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"1600"
+        },
+        {
+            "program_name": "大韓璇風",
+            "program_id": "k_pop_upbeat",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"1700"
+        },
+        {
+            "program_name": "同處一室",
+            "program_id": "siuboplaylist",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"1800"
+        },
+        {
+            "program_name": "語妙天下",
+            "program_id": "languageacademy",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"2000"
+        },
+        {
+            "program_name": "Sci時間",
+            "program_id": "popularscience",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"2030"
+        },
+        {
+            "program_name": "2000 靚歌再重聚",
+            "program_id": "reunion",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "0",
+            "time":"2100"
+        },
+        {
+            "program_name": "音樂說",
+            "program_id": "letthemusicspeak",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "2 3 4 5 6",
+            "time":"0000"
+        },
+        {
+            "program_name": "知識會社",
+            "program_id": "KnowledgeCo",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"0600"
+        },
+        {
+            "program_name": "灣區生活一小時",
+            "program_id": "bayareaguide",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"0900"
+        },
+        {
+            "program_name": "夢想號啟航",
+            "program_id": "dreams_set_sailing",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"1000"
+        },
+        {
+            "program_name": "安哥同學會",
+            "program_id": "jackyclub",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"1100"
+        },
+        {
+            "program_name": "中文歌曲龍虎榜",
+            "program_id": "chinesepopchart",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"1200"
+        },
+        {
+            "program_name": "終身美麗",
+            "program_id": "beautiful_forever",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"1400"
+        },
+        {
+            "program_name": "150遇上170",
+            "program_id": "150meets170",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"1500"
+        },
+        {
+            "program_name": "弦來是這樣的",
+            "program_id": "six_strings_attached",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"1700"
+        },
+        {
+            "program_name": "環球榜",
+            "program_id": "intlpopchart",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"1800"
+        },
+        {
+            "program_name": "奮發時刻 DSE",
+            "program_id": "dse_2012",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"2000"
+        },
+        {
+            "program_name": "開卷樂",
+            "program_id": "bookview",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"2030"
+        },
+        {
+            "program_name": "藝文谷",
+            "program_id": "culturecon",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"2100"
+        },
+        {
+            "program_name": "阿郎戀曲",
+            "program_id": "simonslovesongs",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "6",
+            "time":"2200"
+        },
+        {
+            "program_name": "Music Angel",
+            "program_id": "musicangel",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1",
+            "time":"0000"
+        },
+        {
+            "program_name": "晨光第一線",
+            "program_id": "morningsuite",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"0600"
+        },
+        {
+            "program_name": "瘋 Show 快活人",
+            "program_id": "crazyandhappy",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"1000"
+        },
+        {
+            "program_name": "Made in Hong Kong 李志剛",
+            "program_id": "madeinhk",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"1300"
+        },
+        {
+            "program_name": "三五成群",
+            "program_id": "threesacrowd",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"1500"
+        },
+        {
+            "program_name": "騷動音樂",
+            "program_id": "musicinaction",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"1700"
+        },
+        {
+            "program_name": "Albert Au 區瑞強",
+            "program_id": "albertau",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"1900"
+        },
+        {
+            "program_name": "恬淡情懷",
+            "program_id": "subtle_sensuality",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"2000"
+        },
+        {
+            "program_name": "音樂情人",
+            "program_id": "musiclover",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"2100"
+        },
+        {
+            "program_name": "愛麗絲看世界",
+            "program_id": "ladies_nite",
+            "station_id": "radio2",
+            "station_name": "R2",
+            "weekday": "1 2 3 4 5",
+            "time":"2200"
+        }
+    ],
+    "radio3":[
+
+    ],
+    "radio4":[
+        
+    ],
+    "radio5":[
+        
     ]
 }

@@ -1,14 +1,30 @@
 [
     {
-        "weekday_id": "1 2 3 4 5",
-        "weekday_name_tc": "星期一至五"
+        "weekday_id": "0",
+        "weekday_name_tc": "星期日"
+    },
+    {
+        "weekday_id": "1",
+        "weekday_name_tc": "星期一"
+    },
+    {
+        "weekday_id": "2",
+        "weekday_name_tc": "星期二"
+    },
+    {
+        "weekday_id": "3",
+        "weekday_name_tc": "星期三"
+    },
+    {
+        "weekday_id": "4",
+        "weekday_name_tc": "星期四"
+    },
+    {
+        "weekday_id": "5",
+        "weekday_name_tc": "星期五"
     },
     {
         "weekday_id": "6",
         "weekday_name_tc": "星期六"
-    },
-    {
-        "weekday_id": "0",
-        "weekday_name_tc": "星期日"
     }
 ]

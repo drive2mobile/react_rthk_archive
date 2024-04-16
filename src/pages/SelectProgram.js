@@ -22,7 +22,7 @@ const SelectProgram = () => {
     const [displayList, setDisplayList] = useState([]);
     const [keyword, setKeyword] = useState('');
     const [selectedStation, setSelectedStation] = useState('radio1');
-    const [selectedWeekday, setSelectedWeekday] = useState('1 2 3 4 5');
+    const [selectedWeekday, setSelectedWeekday] = useState('1');
     const [triggerRefreshList, setTriggerRefreshList] = useState(false);
 
     const[showLoading, setShowLoading] = useState(false);
@@ -61,6 +61,12 @@ const SelectProgram = () => {
         const newStationList = await responseStation.json();
         setStationList(newStationList);
 
+        if (urlParams.has('defaultstation'))
+            setSelectedStation(urlParams.get('defaultstation'));
+
+        if (urlParams.has('defaultweekday'))
+            setSelectedWeekday(urlParams.get('defaultweekday'));
+
         setTriggerRefreshList(true);
         setShowContent(true);
     }
@@ -69,10 +75,11 @@ const SelectProgram = () => {
     {
         var newDisplayList = [];
         var searchArray = programList[selectedStation];
+
         for (var i=0 ; i<searchArray.length ; i++)
         {
             if (searchArray[i]['weekday'].toString().includes(selectedWeekday))
-                newDisplayList.push(searchArray[i]);
+                newDisplayList.push(searchArray[i]);               
         }
         newDisplayList.sort((a, b) => parseInt(a.time) - parseInt(b.time));
 
@@ -140,8 +147,9 @@ const SelectProgram = () => {
                             <div style={{width:'calc(100% - 16px)', height:'48px', display:'flex', flexDirection:'row', 
                              justifyContent:'space-between', marginLeft:'8px', marginRight:'8px'}}>
                                 {weekdayList.length > 0 && weekdayList.map((item, index) => (
-                                    <div style={{ width:'calc(33% - 8px)', height:'40px', textAlign:'center', marginTop:'4px'}} key={index}>
-                                        <Button variant={item['weekday_id'] == selectedWeekday ? 'success':'light'} size='m' className={styles.buttonGeneral} 
+                                    <div style={{ width:'calc(14% - 8px)', height:'40px', textAlign:'center', marginTop:'4px'}} key={index}>
+                                        <Button variant={item['weekday_id'] == selectedWeekday ? 'success':'light'} size='sm' className={styles.buttonGeneral} 
+                                            style={{fontSize:'10px', padding:'0px'}}
                                             onClick={() => {
                                                 setSelectedWeekday(item['weekday_id']);
                                                 setTriggerRefreshList(true);
@@ -158,7 +166,8 @@ const SelectProgram = () => {
                                     <div style={{width:'100%', height:'58px', display:'flex', flexDirection:'column', alignItems:'center'}} 
                                         key={index}
                                         onClick={() => { navigate(`/selectdate?programname=${item['program_name']}&stationname=${item['station_name']}&`+
-                                            `programid=${item['program_id']}&stationid=${item['station_id']}&weekday=${item['weekday']}`)}}
+                                            `programid=${item['program_id']}&stationid=${item['station_id']}&weekday=${item['weekday']}&`+
+                                            `defaultstation=${selectedStation}&defaultweekday=${selectedWeekday}`)}}
                                     >
 
                                         <div style={{width:'calc(100% - 16px)', height:'50px', display:'flex', flexDirection:'row', 

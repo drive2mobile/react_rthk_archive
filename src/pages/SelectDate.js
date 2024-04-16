@@ -49,7 +49,12 @@ const SelectDate = () => {
             }
             else
             {
-                navigate('/selectprogram', { replace: true })
+                const defaultStation = urlParams.has('defaultstation') ? urlParams.get('defaultstation') : '';
+                const defaultWeekday = urlParams.has('defaultweekday') ? urlParams.get('defaultweekday') : '';
+                if (defaultStation != '' && defaultWeekday != '')
+                    navigate(`/selectprogram?defaultstation=${defaultStation}&defaultweekday=${defaultWeekday}`, { replace: true });    
+                else
+                    navigate('/selectprogram', { replace: true });   
             }              
         }
     } style={{width:'50px', height:'50px', padding:'10px'}} />;
@@ -305,11 +310,11 @@ const SelectDate = () => {
 
                         {/* ==== PROGRAM NAME ===== */}
                         <div style={{width:'100%', height:'120px', display:'flex', flexDirection:'row', alignItems:'center'}}>
-                            <div style={{width:'40%'}}>
+                            <div style={{width:'120px'}}>
                                 <img src={`${process.env.PUBLIC_URL}/images/${programId}.jpg`} 
                                     style={{height:'120px', width:'auto', padding:'10px', borderRadius:'15px'}}/>
                             </div>
-                            <div style={{width:'60%'}}>選擇日期/期數：</div>
+                            <div style={{width:'calc(100% - 120px)'}}>選擇日期/期數：</div>
                         </div>
 
                         {/* ===== DISPLAY LIST ==== */}

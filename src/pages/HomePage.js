@@ -6,47 +6,48 @@ import { useState } from 'react';
 
 const HomePage = () => {
     const navigate = useNavigate();
-    const [open, setOpen] = useState(true);
-    // `${process.env.PUBLIC_URL}/picture/ragdoll1.jpg`
     return (
         <div className={styles.body}>
-            <Fade in={true} appear={true} style={{transitionDuration: '0.8s'}}>
-                <div style={{height:'100dvh'}}>
-                    <div style={{ height: 'calc(100dvh - 50px - 180px - 40px)', display: 'flex', color:'#484848',
-                    flexDirection: 'column', justifyContent: 'center', alignItems: 'center', fontSize: '25px', textAlign: 'center' }}>
-                        <div>
-                            <img src={`${process.env.PUBLIC_URL}/images/rthk_logo.png`} style={{ width: '50%', height: 'auto', padding: '0px', border: '0px solid black', borderRadius: '15px' }} />
+            <Fade in={true} appear={true} style={{ transitionDuration: '0.8s' }}>
+                <div>
+                    <div className={styles.contentContainer}>
+
+                        <div className={styles.logoTitleContainer}>
+                            <img src={`https://webappdev.info/rthk/images/rthk_logo.png`} style={{ width: '50%', height: 'auto' }} />
+                            <div style={{ color: '#484848', fontSize: '25px', marginTop: '30px' }}>RTHK Archive</div>
+                            <div style={{ color: '#484848', fontSize: '25px' }}>香港電台節目重溫</div>
+                            <div style={{ color: '#484848', fontSize: '15px', marginTop: '50px' }}>此網站的內容均來自互聯網</div>
                         </div>
-                        <div style={{marginTop:'10px'}}>RTHK Archive</div>
-                        <div>香港電台節目重溫</div>
+
+                        <div className={styles.shortcutContainer}>
+                            <Button variant="light" size='lg' style={{ width: '25%', height: '130px'}} onClick={() => navigate('/selectprogram')}>
+                                <div >
+                                    <ReactIcon.BroadcastPin style={{ width: '50px', height: '50px', marginBottom: '10px'}} />
+                                    <div style={{fontSize:'20px'}}>重溫節目</div>
+                                </div>
+                            </Button>
+
+                            <Button variant="light" size='lg' style={{ width: '25%', height: '130px'}} onClick={() => navigate('/bookmark')}>
+                                <div >
+                                    <ReactIcon.Bookmarks style={{ width: '50px', height: '50px', marginBottom: '10px' }} />
+                                    <div style={{fontSize:'20px'}}>收藏節目</div>
+                                </div>
+                            </Button>
+
+                            <Button variant="light" size='lg' style={{ width: '25%', height: '130px'}} onClick={() => navigate('/')}>
+                                <div >
+                                    <ReactIcon.QuestionSquare style={{ width: '50px', height: '50px', marginBottom: '10px' }} />
+                                    <div style={{fontSize:'20px'}}>使用教學</div>
+                                </div>
+                            </Button>
+                        </div>
+
                     </div>
-
-                    <div style={{ height: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        些網站的重溫內容均來自互聯網
-                    </div>
-
-                    <div style={{height:'180px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                        <Button variant="light" size='lg' style={{width:'40%', height:'130px'}} onClick={() => navigate('/selectprogram')}>
-                            <div >
-                                <ReactIcon.Magic style={{width:'55px', height:'55px', marginBottom:'10px', marginRight:'7.5%'}}/>
-                                <div>重溫節目</div>
-                            </div>
-                        </Button>
-
-                        <Button variant="light" size='lg' style={{width:'40%', height:'130px', marginLeft:'7.5%'}} onClick={() => navigate('/')}>
-                            <div >
-                                <ReactIcon.Search style={{width:'55px', height:'55px', marginBottom:'10px'}}/>
-                                <div>使用教學</div>
-                            </div>
-                        </Button>
-
-                        
-                    </div>
-                    <div style={{ height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize:'12px', lineHeight:'40px' }}>
+                    <div style={{ width: '100%', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', lineHeight: '40px' }}>
                         Beta 1.0
                     </div>
-                    
                 </div>
+
             </Fade>
         </div>
     )

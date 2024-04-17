@@ -34,22 +34,6 @@
     scrollbar-width: none;
 }
 
-.stationButton{
-    width: calc(100% - 8px);
-    height: 60px;
-    text-align: center;
-    font-size: 16px;
-    margin: 4px;
-}
-
-.weekdayButton{
-    width: calc(100% - 8px);
-    height: 60px;
-    text-align: center;
-    font-size: 16px;
-    margin: 4px;
-}
-
 .program{
     width: calc(100% - 8px);
     height: 50px;
@@ -78,23 +62,6 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-    }
-
-    .stationButton{
-        width: calc(20% - 8px);
-        height: calc(100% - 8px);
-        text-align: center;
-        margin: 4px;
-        font-size: 14px;
-    }
-
-    .weekdayButton{
-        width: calc(14.2% - 8px);
-        height: calc(100% - 8px);
-        text-align: center;
-        margin: 4px;
-        font-size: 10px !important;
-        padding: 0px !important;
     }
 
     .programContainer{

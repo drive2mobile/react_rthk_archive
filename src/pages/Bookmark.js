@@ -81,15 +81,24 @@ const Bookmark = () => {
             <div style={{height:'100dvh'}}>
 
                 {/* ===== APP BAR ===== */}
-                <AppBar leftIcon={backBtn} Header={selectProgram[lang]} rightIcon={null}></AppBar>
+                <AppBar leftIcon={backBtn} Header={'收藏節目'} rightIcon={null}></AppBar>
 
-                
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
                     <div className={styles.contentContainer}>
+                        
+                        {/* ===== LEFT SECTION ===== */}
+                        <div className={styles.leftSectionContainer}>
+                            <div style={{width:'120px'}}>
+                                <Icon.Bookmark 
+                                    style={{height:'100px', width:'100px'}}/>
+                            </div>
+                            <div style={{width:'calc(100% - 120px)'}}>收藏節目</div>
+                        </div>
+
 
                         {/* ===== SELECT PROGRAM =====  */}
                         <div className={styles.programContainer}>
-
+                        <div className={styles.programSubContainer}>
                             {displayList.length > 0 && displayList.map((item, index) => (
                                 <div 
                                     className={styles.program}
@@ -120,7 +129,7 @@ const Bookmark = () => {
                                     </div>
                                 </div>     
                             ))}
-
+                        </div>
                         </div>
 
                     </div>

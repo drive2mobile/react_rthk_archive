@@ -319,6 +319,7 @@ const SelectDate = () => {
 
                         {/* ===== DISPLAY LIST ==== */}
                         <div className={styles.dateListContainer}>
+                        <div className={styles.dateListSubContainer}>
 
                             {dateList.length > 0 && dateList.map((item, index) => (
                                 <div 
@@ -399,7 +400,7 @@ const SelectDate = () => {
                                     setTriggerRefreshDate(true)
                                 }}>載入更多(30期)</Button>
                             </div>
-                            
+                        </div>    
                         </div>
 
                     </div>

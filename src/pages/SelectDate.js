@@ -306,10 +306,10 @@ const SelectDate = () => {
                 <AppBar leftIcon={backBtn} Header={programName + " " + stationName} rightIcon={shareBtn}></AppBar>
 
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
-                    <div style={{height:'calc(100dvh - 50px)'}}>
+                    <div className={styles.contentContainer}>
 
                         {/* ==== PROGRAM NAME ===== */}
-                        <div style={{width:'100%', height:'120px', display:'flex', flexDirection:'row', alignItems:'center'}}>
+                        <div className={styles.programDetailContainer}>
                             <div style={{width:'120px'}}>
                                 <img src={`${process.env.PUBLIC_URL}/images/${programId}.jpg`} 
                                     style={{height:'120px', width:'auto', padding:'10px', borderRadius:'15px'}}/>
@@ -318,80 +318,75 @@ const SelectDate = () => {
                         </div>
 
                         {/* ===== DISPLAY LIST ==== */}
-                        <div style={{width:'100%', height:'calc(100dvh - 50px - 120px)', overflow: 'auto', scrollbarWidth: 'none'}}>
+                        <div className={styles.dateListContainer}>
 
                             {dateList.length > 0 && dateList.map((item, index) => (
-                                <div key={index} style={index == selectedDateIndex ? 
-                                    {width:'100%', height:'158px', display:'flex', flexDirection:'column', alignItems:'center'} :
-                                    {width:'100%', height:'58px', display:'flex', flexDirection:'column', alignItems:'center'}} 
+                                <div 
+                                    key={index}
+                                    style={index == selectedDateIndex ?
+                                        {width:'calc(100% - 8px)', height:'150px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2', margin:'4px'} :
+                                        {width:'calc(100% - 8px)', height:'50px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2', margin:'4px'}}
+                                    onClick={() => {
+                                        if (isDownloading == false)
+                                        {
+                                            setSelectedDateIndex(index);
+                                            setIsDownloadFinish(false);
+                                        } 
+                                    }}
                                 >
-
-                                    <div style={index == selectedDateIndex ?
-                                        {width:'calc(100% - 16px)', height:'150px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2'} :
-                                        {width:'calc(100% - 16px)', height:'50px', backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2'}}
-                                        onClick={() => {
-                                            if (isDownloading == false)
-                                            {
-                                                setSelectedDateIndex(index);
-                                                setIsDownloadFinish(false);
-                                            } 
-                                        }}
-                                    >
-                                        <div style={{width:'100%', lineHeight:'50px', display:'flex', flexDirection:'row'}}>
-                                            <div style={{width:'75%', paddingLeft:'20px'}}>
-                                                {`${item['date'].substring(6,8)}-${item['date'].substring(4,6)}-${item['date'].substring(0,4)}`}
+                                    <div style={{width:'100%', lineHeight:'50px', display:'flex', flexDirection:'row'}}>
+                                        <div style={{width:'75%', paddingLeft:'20px'}}>
+                                            {`${item['date'].substring(6,8)}-${item['date'].substring(4,6)}-${item['date'].substring(0,4)}`}
+                                        </div>
+                                        <div style={{width:'25%', display:'flex', flexDirection:'column'}}>
+                                            <div style={{lineHeight:'25px', fontSize:'14px'}}>
+                                                <Icon.Clock style={{width:'12px', height:'12px', padding:'0px', margin:'0px'}}></Icon.Clock>&nbsp;
+                                                {item['duration']}
                                             </div>
-                                            <div style={{width:'25%', display:'flex', flexDirection:'column'}}>
-                                                <div style={{lineHeight:'25px', fontSize:'14px'}}>
-                                                    <Icon.Clock style={{width:'12px', height:'12px', padding:'0px', margin:'0px'}}></Icon.Clock>&nbsp;
-                                                    {item['duration']}
-                                                </div>
-                                                <div style={{lineHeight:'25px', fontSize:'14px'}}>
-                                                    <Icon.FileEarmarkText style={{width:'12px', height:'12px'}}></Icon.FileEarmarkText>&nbsp;
-                                                    {item['size']} Mb
-                                                </div>
+                                            <div style={{lineHeight:'25px', fontSize:'14px'}}>
+                                                <Icon.FileEarmarkText style={{width:'12px', height:'12px'}}></Icon.FileEarmarkText>&nbsp;
+                                                {item['size']} Mb
                                             </div>
                                         </div>
+                                    </div>
 
-                                        {index == selectedDateIndex && 
-                                        <div style={{width:'100%', height:'100px'}}>
-                                            {isDownloading == false && isDownloadFinish == false &&
-                                                <div style={{height:'100%', lineHeight:'100px', textAlign:'center'}}>
-                                                    <Button variant="light" style={{width:'20%', height:'40px'}} 
-                                                    onClick={() => setTriggerDownload(true)}>下載</Button>
-                                                </div>
-                                            }
-                                            {isDownloading == true && isDownloadFinish == false &&
-                                                <div style={{height:'100%', textAlign:'center'}}>
-                                                    <div style={{lineHeight:'30px', fontSize:'14px'}}>
-                                                        下載中，請勿離開頁面
-                                                    </div>
-                                                    <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
-                                                        <ProgressBar variant="success" now={downloadProgress} style={{width:'60%'}} />
-                                                    </div>
-                                                    <div style={{lineHeight:'40px', textAlign:'center'}}>
-                                                        <Button variant="light" style={{width:'20%', height:'35px'}} 
-                                                        onClick={() => isCancelDownload.current = true}>取消</Button>
-                                                    </div>
-                                                </div>
-                                            }
-                                            {isDownloading == false && isDownloadFinish == true &&
-                                                <div style={{height:'100%', textAlign:'center'}}>
-                                                    <div style={{lineHeight:'30px', fontSize:'14px'}}>
-                                                        下載完成
-                                                    </div>
-                                                    <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
-                                                        <ProgressBar variant="success" now={100} style={{width:'60%'}} />
-                                                    </div>
-                                                </div>  
-                                            }
-                                                
-                                        </div>
+                                    {index == selectedDateIndex && 
+                                    <div style={{width:'100%', height:'100px'}}>
+                                        {isDownloading == false && isDownloadFinish == false &&
+                                            <div style={{height:'100%', lineHeight:'100px', textAlign:'center'}}>
+                                                <Button variant="light" style={{width:'20%', height:'40px'}} 
+                                                onClick={() => setTriggerDownload(true)}>下載</Button>
+                                            </div>
                                         }
+                                        {isDownloading == true && isDownloadFinish == false &&
+                                            <div style={{height:'100%', textAlign:'center'}}>
+                                                <div style={{lineHeight:'30px', fontSize:'14px'}}>
+                                                    下載中，請勿離開頁面
+                                                </div>
+                                                <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
+                                                    <ProgressBar variant="success" now={downloadProgress} style={{width:'60%'}} />
+                                                </div>
+                                                <div style={{lineHeight:'40px', textAlign:'center'}}>
+                                                    <Button variant="light" style={{width:'20%', height:'35px'}} 
+                                                    onClick={() => isCancelDownload.current = true}>取消</Button>
+                                                </div>
+                                            </div>
+                                        }
+                                        {isDownloading == false && isDownloadFinish == true &&
+                                            <div style={{height:'100%', textAlign:'center'}}>
+                                                <div style={{lineHeight:'30px', fontSize:'14px'}}>
+                                                    下載完成
+                                                </div>
+                                                <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
+                                                    <ProgressBar variant="success" now={100} style={{width:'60%'}} />
+                                                </div>
+                                            </div>  
+                                        }
+                                            
+                                    </div>
+                                    }
 
-                                    </div>    
-
-                                </div>
+                                </div>    
                             ))}
 
                             <div style={{width:'100%', textAlign:'center', marginBottom:'10px'}}>

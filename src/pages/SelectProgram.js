@@ -125,73 +125,69 @@ const SelectProgram = () => {
 
                 
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
-                    <div style={{height:'calc(100dvh - 50px)'}}>
-                        <div style={{height:'100%'}}>
+                    <div className={styles.contentContainer}>
 
-                            {/* ===== SELECT STATION =====  */}
-                            <div style={{width:'calc(100% - 16px)', height:'48px', display:'flex', flexDirection:'row', 
-                             justifyContent:'space-between', marginLeft:'8px', marginRight:'8px'}}>
-                                {stationList.length > 0 && stationList.map((item, index) => (
-                                    <div style={{ width:'calc(20% - 8px)', height:'40px', textAlign:'center', marginTop:'4px'}} key={index}>
-                                        <Button variant={item['station_id'] == selectedStation ? 'success':'light'} size='sm' className={styles.buttonGeneral} 
-                                            onClick={() => {
-                                                setSelectedStation(item['station_id']);
-                                                setTriggerRefreshList(true);
-                                            }}
-                                        >{item['station_name_tc']}</Button>
+                        {/* ===== SELECT STATION =====  */}
+                        <div className={styles.stationContainer}>
+                            {stationList.length > 0 && stationList.map((item, index) => (
+                                <Button 
+                                    variant={item['station_id'] == selectedStation ? 'success':'light'} 
+                                    size='sm'  
+                                    className={styles.stationButton} 
+                                    key={index}
+                                    onClick={() => {
+                                        setSelectedStation(item['station_id']);
+                                        setTriggerRefreshList(true);
+                                    }}
+                                >{item['station_name_tc']}</Button>
+                            ))}
+                        </div>
+
+                        {/* ===== SELECT WEEKDAY =====  */}
+                        <div className={styles.stationContainer}>
+                            {weekdayList.length > 0 && weekdayList.map((item, index) => (
+                                <Button 
+                                    variant={item['weekday_id'] == selectedWeekday ? 'success':'light'} 
+                                    size='sm' 
+                                    key={index}
+                                    className={styles.weekdayButton} 
+                                    onClick={() => {
+                                        setSelectedWeekday(item['weekday_id']);
+                                        setTriggerRefreshList(true);
+                                    }}
+                                    
+                                >{item['weekday_name_tc']}</Button>
+                            ))}
+                        </div>
+
+                        {/* ===== SELECT PROGRAM =====  */}
+                        <div className={styles.programContainer}>
+
+                            {displayList.length > 0 && displayList.map((item, index) => (
+                                <div 
+                                    className={styles.program}
+                                    key={index}   
+                                    onClick={() => { navigate(`/selectdate?programname=${item['program_name']}&stationname=${item['station_name']}&`+
+                                        `programid=${item['program_id']}&stationid=${item['station_id']}&weekday=${item['weekday']}&`+
+                                        `defaultstation=${selectedStation}&defaultweekday=${selectedWeekday}`)}}
+                                >
+                                    <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
+                                            alignItems:'center', padding:'4px'}}>
+                                        <img src={`${process.env.PUBLIC_URL}/images/${item['program_id']}.jpg`} 
+                                            style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
+                                        ></img>
                                     </div>
-                                ))}
-                            </div>
-
-                            {/* ===== SELECT WEEKDAY =====  */}
-                            <div style={{width:'calc(100% - 16px)', height:'48px', display:'flex', flexDirection:'row', 
-                             justifyContent:'space-between', marginLeft:'8px', marginRight:'8px'}}>
-                                {weekdayList.length > 0 && weekdayList.map((item, index) => (
-                                    <div style={{ width:'calc(14% - 8px)', height:'40px', textAlign:'center', marginTop:'4px'}} key={index}>
-                                        <Button variant={item['weekday_id'] == selectedWeekday ? 'success':'light'} size='sm' className={styles.buttonGeneral} 
-                                            style={{fontSize:'10px', padding:'0px'}}
-                                            onClick={() => {
-                                                setSelectedWeekday(item['weekday_id']);
-                                                setTriggerRefreshList(true);
-                                            }}
-                                        >{item['weekday_name_tc']}</Button>
+                                    <div style={{width:'calc(100% - 160px)'}}>
+                                        {item['program_name']}
                                     </div>
-                                ))}
-                            </div>
-
-                            {/* ===== SELECT PROGRAM =====  */}
-                            <div style={{width:'100%', height:'calc(100dvh - 50px - 48px - 48px)', overflow: 'auto', scrollbarWidth: 'none'}}>
-
-                                {displayList.length > 0 && displayList.map((item, index) => (
-                                    <div style={{width:'100%', height:'58px', display:'flex', flexDirection:'column', alignItems:'center'}} 
-                                        key={index}
-                                        onClick={() => { navigate(`/selectdate?programname=${item['program_name']}&stationname=${item['station_name']}&`+
-                                            `programid=${item['program_id']}&stationid=${item['station_id']}&weekday=${item['weekday']}&`+
-                                            `defaultstation=${selectedStation}&defaultweekday=${selectedWeekday}`)}}
-                                    >
-
-                                        <div style={{width:'calc(100% - 16px)', height:'50px', display:'flex', flexDirection:'row', 
-                                                backgroundColor:'white', borderRadius:'4px', border: '1px solid #e2e2e2', lineHeight:'50px'}}>
-                                            <div style={{width:'20%', height:'50px', display:'flex', flexDirection:'column', 
-                                                    alignItems:'center', padding:'4px'}}>
-                                                <img src={`${process.env.PUBLIC_URL}/images/${item['program_id']}.jpg`} 
-                                                    style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
-                                                ></img>
-                                            </div>
-                                            <div style={{width:'60%'}}>
-                                                {item['program_name']}
-                                            </div>
-                                            <div style={{width:'20%', textAlign:'center'}}>
-                                                {item['station_name']}
-                                            </div>
-                                        </div>     
-
+                                    <div style={{width:'80px', textAlign:'center'}}>
+                                        {item['station_name']}
                                     </div>
-                                ))}
-
-                            </div>
+                                </div>     
+                            ))}
 
                         </div>
+
                     </div>
                 </Fade>
             </div>

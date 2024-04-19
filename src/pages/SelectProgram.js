@@ -9,6 +9,7 @@ import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons';
 import { selectProgram } from "../utilies/Locale";
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
+import { stationList, weekdayList } from "../utilies/Constants";
 
 const SelectProgram = () => {
     var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
@@ -18,13 +19,11 @@ const SelectProgram = () => {
     const[lang, setLang] = useState('tc');
 
     const [bookmarkList, setBookmarkList] = useState({});
-    const [weekdayList, setWeekDayList] = useState([]);
-    const [stationList, setStationList] = useState([]);
-    const [programList, setProgramList] = useState({});
     const [displayList, setDisplayList] = useState([]);
-    const [keyword, setKeyword] = useState('');
+
     const [selectedStation, setSelectedStation] = useState('radio1');
     const [selectedWeekday, setSelectedWeekday] = useState('1');
+    const [programList, setProgramList] = useState([]);
     const [triggerRefreshList, setTriggerRefreshList] = useState(false);
 
     const[showLoading, setShowLoading] = useState(false);
@@ -51,23 +50,15 @@ const SelectProgram = () => {
 
     async function initialize()
     {
-        const responseWeekday = await fetch(`${process.env.PUBLIC_URL}/json_files/weekday.json`);
-        const newWeekdayList = await responseWeekday.json();
-        setWeekDayList(newWeekdayList);
-        
         const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json`);
         const newProgramList = await responsePrograms.json();
         setProgramList(newProgramList);
 
-        const responseStation = await fetch(`${process.env.PUBLIC_URL}/json_files/stations.json`);
-        const newStationList = await responseStation.json();
-        setStationList(newStationList);
+        if (urlParams.has('selectedStation'))
+            setSelectedStation(urlParams.get('selectedStation'));
 
-        if (urlParams.has('defaultstation'))
-            setSelectedStation(urlParams.get('defaultstation'));
-
-        if (urlParams.has('defaultweekday'))
-            setSelectedWeekday(urlParams.get('defaultweekday'));
+        if (urlParams.has('selectedWeekday'))
+            setSelectedWeekday(urlParams.get('selectedWeekday'));
 
         const newBookmarkList =  await getStorageItemDB('bookmark');
         setBookmarkList(newBookmarkList);
@@ -79,16 +70,19 @@ const SelectProgram = () => {
     async function refreshList()
     {
         var newDisplayList = [];
-        var searchArray = programList[selectedStation];
+        var searchArray = programList[selectedStation] ? programList[selectedStation] : [];
 
-        for (var i=0 ; i<searchArray.length ; i++)
+        if (searchArray.length > 0)
         {
-            if (searchArray[i]['weekday'].toString().includes(selectedWeekday))
-                newDisplayList.push(searchArray[i]);               
+            for (var i=0 ; i<searchArray.length ; i++)
+            {
+                if (searchArray[i]['weekday'].toString().includes(selectedWeekday))
+                    newDisplayList.push(searchArray[i]);               
+            }
+            newDisplayList.sort((a, b) => parseInt(a.time) - parseInt(b.time));
+    
+            setDisplayList(newDisplayList);
         }
-        newDisplayList.sort((a, b) => parseInt(a.time) - parseInt(b.time));
-
-        setDisplayList(newDisplayList);
     }
 
     async function addBookmark(programId)
@@ -180,14 +174,14 @@ const SelectProgram = () => {
 
                         {/* ===== SELECT PROGRAM =====  */}
                         <div className={styles.programContainer}>
+                        <div className={styles.programSubContainer}>   
 
                             {displayList.length > 0 && displayList.map((item, index) => (
                                 <div 
                                     className={styles.program}
                                     key={index}   
-                                    onClick={() => { navigate(`/selectdate?programname=${item['program_name']}&stationname=${item['station_name']}&`+
-                                        `programid=${item['program_id']}&stationid=${item['station_id']}&weekday=${item['weekday']}&`+
-                                        `defaultstation=${selectedStation}&defaultweekday=${selectedWeekday}`)}}
+                                    onClick={() => { navigate(`/selectdate?programID=${item['program_id']}&prevPage=selectProgram&`+
+                                        `selectedStation=${selectedStation}&selectedWeekday=${selectedWeekday}`)}}
                                 >
                                     <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
                                             alignItems:'center', padding:'4px'}}>
@@ -212,6 +206,7 @@ const SelectProgram = () => {
                                 </div>     
                             ))}
 
+                        </div>
                         </div>
 
                     </div>

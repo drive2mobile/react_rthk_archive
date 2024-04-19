@@ -33,21 +33,26 @@ const Bookmark = () => {
     async function initialize()
     {
         const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json`);
-        const newProgramList = await responsePrograms.json();
+        const tempProgramList = await responsePrograms.json();
+        var newProgramList = {};
+        for (const key in tempProgramList)
+        {
+            const currItem = tempProgramList[key];
+            for (var i=0 ; i<currItem.length ; i++)
+            {
+                newProgramList[currItem[i]['program_id']] = currItem[i];
+            }
+        }
         setProgramList(newProgramList);
 
         const newBookmarkList =  await getStorageItemDB('bookmark');
         setBookmarkList(newBookmarkList);
 
         var newDisplayList = [];
-        for (const key in newProgramList)
+        for (const key in newBookmarkList)
         {
-            const currItem = newProgramList[key];
-            for (var i=0 ; i<currItem.length ; i++)
-            {
-                if (newBookmarkList.hasOwnProperty(currItem[i]['program_id']))
-                    newDisplayList.push(currItem[i]);
-            }
+            if (newProgramList[key])
+                newDisplayList.push(newProgramList[key]);
         }
 
         setDisplayList(newDisplayList);
@@ -103,9 +108,7 @@ const Bookmark = () => {
                                 <div 
                                     className={styles.program}
                                     key={index}   
-                                    onClick={() => { navigate(`/selectdate?programname=${item['program_name']}&stationname=${item['station_name']}&`+
-                                        `programid=${item['program_id']}&stationid=${item['station_id']}&weekday=${item['weekday']}&`+
-                                        ``)}}
+                                    onClick={() => { navigate(`/selectdate?programID=${item['program_id']}&prevPage=bookmark`)}}
                                 >
                                     <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
                                             alignItems:'center', padding:'4px'}}>

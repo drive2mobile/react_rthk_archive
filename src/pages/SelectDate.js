@@ -14,7 +14,7 @@ const SelectDate = () => {
     const navigate = useNavigate();
     const urlParams = new URLSearchParams(window.location.search);
     const[lang, setLang] = useState('tc');
-
+    const [returnURL, setReturnURL] = useState('');
     const [programName, setProgramName] = useState('');
     const [programId, setProgramId] = useState('');
     const [weekday, setWeekday] = useState('');
@@ -49,12 +49,7 @@ const SelectDate = () => {
             }
             else
             {
-                const defaultStation = urlParams.has('defaultstation') ? urlParams.get('defaultstation') : '';
-                const defaultWeekday = urlParams.has('defaultweekday') ? urlParams.get('defaultweekday') : '';
-                if (defaultStation != '' && defaultWeekday != '')
-                    navigate(`/selectprogram?defaultstation=${defaultStation}&defaultweekday=${defaultWeekday}`, { replace: true });    
-                else
-                    navigate('/selectprogram', { replace: true });   
+                navigate(returnURL, { replace: true });   
             }              
         }
     } style={{width:'50px', height:'50px', padding:'10px'}} />;
@@ -92,23 +87,51 @@ const SelectDate = () => {
 
     async function initialize()
     {
-        setDatePivot(new Date());
+        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json`);
+        const tempProgramList = await responsePrograms.json();
 
-        const newProgramName = urlParams.has('programname') ? urlParams.get('programname') : '';
-        const newStationName = urlParams.has('stationname') ? urlParams.get('stationname') : '';
-        const newProgramId = urlParams.has('programid') ? urlParams.get('programid') : '';
-        const newStationId = urlParams.has('stationid') ? urlParams.get('stationid') : '';
-        const newWeekday = urlParams.has('weekday') ? urlParams.get('weekday') : '';
-        setProgramName(newProgramName);
-        setStationName(newStationName);
-        setProgramId(newProgramId);
-        setWeekday(newWeekday);
+        var newProgramList = {};
+        for (const key in tempProgramList)
+        {
+            const currItem = tempProgramList[key];
+            for (var i=0 ; i<currItem.length ; i++)
+            {
+                newProgramList[currItem[i]['program_id']] = currItem[i];
+            }
+        }
 
-        var newDownloadURL = downloadURLSample.replace('STATION', newStationId);
-        newDownloadURL = newDownloadURL.replace('PROGRAM', newProgramId);
-        setDownloadURL(newDownloadURL);
+        const newProgramID = urlParams.has('programID') ? urlParams.get('programID') : '';
+        const prevPage = urlParams.has('prevPage') ? urlParams.get('prevPage') : '';
+        const selectedStation = urlParams.has('selectedStation') ? urlParams.get('selectedStation') : '';
+        const selectedWeekday = urlParams.has('selectedWeekday') ? urlParams.get('selectedWeekday') : '';
 
-        setTriggerRefreshDate(true);
+        if (prevPage == 'selectProgram')
+            setReturnURL(`/selectprogram?selectedStation=${selectedStation}&selectedWeekday=${selectedWeekday}`);
+        else if (prevPage == 'bookmark')
+            setReturnURL('/bookmark');
+        else
+            setReturnURL('/');
+
+        if (newProgramList[newProgramID])
+        {
+            setDatePivot(new Date());
+
+            const newProgramObj = newProgramList[newProgramID];
+
+            setProgramName(newProgramObj['program_name']);
+            setStationName(newProgramObj['station_name']);
+            setProgramId(newProgramID);
+            setWeekday(newProgramObj['weekday']);
+    
+            var newDownloadURL = downloadURLSample.replace('STATION', newProgramObj['station_id']).replace('PROGRAM', newProgramID);
+            setDownloadURL(newDownloadURL);
+
+            setTriggerRefreshDate(true);
+        }
+        else
+        {
+
+        }
     }
 
     async function refreshDate(){

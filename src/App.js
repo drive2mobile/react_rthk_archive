@@ -5,8 +5,6 @@ import HomePage from "./pages/HomePage";
 import Bookmark from "./pages/Bookmark";
 import DownloadProgram from "./pages/DownloadProgram";
 
-
-
 function App() {
     return (
         <BrowserRouter basename="/rthk">

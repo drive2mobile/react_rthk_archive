@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Fade } from 'react-bootstrap';
+import { Fade } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AppBar from '../ui_components/AppBar';
 import styles from './styles/BookmarkStyle.module.css';
 import SpinnerFullscreen from '../ui_components/SpinnerFullscreen';
 import ToastAlert from '../ui_components/ToastAlert';
-import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons';
-import { selectProgram } from "../utilies/Locale";
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
+import { bookmarks } from "../utilies/Locale";
 
-const Bookmark = () => {
+const Bookmark = ({lang}) => {
     var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
     const navigate = useNavigate();
     const urlParams = new URLSearchParams(window.location.search);
-    const[lang, setLang] = useState('tc');
 
     const [bookmarkList, setBookmarkList] = useState({});
     const [programList, setProgramList] = useState({});
@@ -27,8 +25,9 @@ const Bookmark = () => {
     const[toastTrigger,setToastTrigger] = useState(0);
 
     useEffect(() => {
-        initialize();
-    },[])
+        if (lang != '')
+            initialize();
+    },[lang])
 
     async function initialize()
     {
@@ -86,7 +85,7 @@ const Bookmark = () => {
             <div style={{height:'100dvh'}}>
 
                 {/* ===== APP BAR ===== */}
-                <AppBar leftIcon={backBtn} Header={'收藏節目'} rightIcon={null}></AppBar>
+                <AppBar leftIcon={backBtn} Header={bookmarks[lang]} rightIcon={null}></AppBar>
 
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
                     <div className={styles.contentContainer}>
@@ -97,7 +96,7 @@ const Bookmark = () => {
                                 <Icon.Bookmark 
                                     style={{height:'100px', width:'100px'}}/>
                             </div>
-                            <div style={{width:'calc(100% - 120px)'}}>收藏節目</div>
+                            <div style={{width:'calc(100% - 120px)'}}>{bookmarks[lang]}</div>
                         </div>
 
 

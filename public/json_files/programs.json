@@ -6,7 +6,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5 6",
-            "time":"0330"
+            "time": "0330"
         },
         {
             "program_name": "哈林奭失眠",
@@ -14,7 +14,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1",
-            "time":"0000"
+            "time": "0000"
         },
         {
             "program_name": "藍地球(精華版)",
@@ -22,7 +22,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1",
-            "time":"0200"
+            "time": "0200"
         },
         {
             "program_name": "月光書情",
@@ -30,7 +30,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1",
-            "time":"0230"
+            "time": "0230"
         },
         {
             "program_name": "清晨爽利",
@@ -38,7 +38,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5 6",
-            "time":"0500"
+            "time": "0500"
         },
         {
             "program_name": "財經華爾街",
@@ -46,7 +46,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"0640"
+            "time": "0640"
         },
         {
             "program_name": "動感天地",
@@ -54,7 +54,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"0650"
+            "time": "0650"
         },
         {
             "program_name": "放眼世界",
@@ -62,7 +62,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"0700"
+            "time": "0700"
         },
         {
             "program_name": "環看天下",
@@ -70,7 +70,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"0730"
+            "time": "0730"
         },
         {
             "program_name": "報章摘要",
@@ -78,7 +78,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"0745"
+            "time": "0745"
         },
         {
             "program_name": "晨早新聞天地",
@@ -86,7 +86,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5 6 0",
-            "time":"0630"
+            "time": "0630"
         },
         {
             "program_name": "千禧年代",
@@ -94,7 +94,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"0800"
+            "time": "0800"
         },
         {
             "program_name": "一桶金",
@@ -102,7 +102,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"1000"
+            "time": "1000"
         },
         {
             "program_name": "開心日報",
@@ -110,7 +110,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"1030"
+            "time": "1030"
         },
         {
             "program_name": "午間新聞天地",
@@ -118,7 +118,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5 6 0",
-            "time":"1200"
+            "time": "1200"
         },
         {
             "program_name": "精靈一點",
@@ -126,7 +126,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"1300"
+            "time": "1300"
         },
         {
             "program_name": "港台體壇",
@@ -134,7 +134,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"1500"
+            "time": "1500"
         },
         {
             "program_name": "一桶金之財經新思維",
@@ -142,7 +142,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"1630"
+            "time": "1630"
         },
         {
             "program_name": "自由風自由PHONE",
@@ -150,7 +150,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"1700"
+            "time": "1700"
         },
         {
             "program_name": "傍晚新聞天地",
@@ -158,7 +158,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5 6 0",
-            "time":"1800"
+            "time": "1800"
         },
         {
             "program_name": "守下留情",
@@ -166,7 +166,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"2000"
+            "time": "2000"
         },
         {
             "program_name": "晚間新聞天地",
@@ -174,7 +174,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5 6 0",
-            "time":"2200"
+            "time": "2200"
         },
         {
             "program_name": "講東講西",
@@ -182,7 +182,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "1 2 3 4 5",
-            "time":"2235"
+            "time": "2235"
         },
         {
             "program_name": "那些年 張偉基",
@@ -190,7 +190,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "2 3 4 5 6",
-            "time":"0000"
+            "time": "0000"
         },
         {
             "program_name": "香港故事",
@@ -198,7 +198,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "2 3 4 5 6",
-            "time":"0100"
+            "time": "0100"
         },
         {
             "program_name": "CIBS人人廣播",
@@ -206,7 +206,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "2 3 4 5 6",
-            "time":"0130"
+            "time": "0130"
         },
         {
             "program_name": "星期六問責",
@@ -214,7 +214,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"0800"
+            "time": "0800"
         },
         {
             "program_name": "香港家書",
@@ -222,7 +222,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"0900"
+            "time": "0900"
         },
         {
             "program_name": "英式英語一分鐘 with 蕭叔叔",
@@ -230,7 +230,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"0920"
+            "time": "0920"
         },
         {
             "program_name": "理財新世代",
@@ -238,7 +238,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"0930"
+            "time": "0930"
         },
         {
             "program_name": "十萬八千里",
@@ -246,7 +246,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"1030"
+            "time": "1030"
         },
         {
             "program_name": "大氣候",
@@ -254,7 +254,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"1220"
+            "time": "1220"
         },
         {
             "program_name": "五十年後",
@@ -262,7 +262,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"1400"
+            "time": "1400"
         },
         {
             "program_name": "政壇新秀訓練班",
@@ -270,7 +270,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"1500"
+            "time": "1500"
         },
         {
             "program_name": "點解中國",
@@ -278,7 +278,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"1600"
+            "time": "1600"
         },
         {
             "program_name": "旅遊樂園",
@@ -286,7 +286,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"1700"
+            "time": "1700"
         },
         {
             "program_name": "一台運動會",
@@ -294,7 +294,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"1900"
+            "time": "1900"
         },
         {
             "program_name": "古今風雲人物",
@@ -302,7 +302,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"2000"
+            "time": "2000"
         },
         {
             "program_name": "入實驗室想點都得",
@@ -310,7 +310,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"2030"
+            "time": "2030"
         },
         {
             "program_name": "《我們一直都在說故事》",
@@ -318,7 +318,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"2100"
+            "time": "2100"
         },
         {
             "program_name": "少寶與文狄",
@@ -326,7 +326,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "6",
-            "time":"2220"
+            "time": "2220"
         },
         {
             "program_name": "我得你都得",
@@ -334,7 +334,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"0000"
+            "time": "0000"
         },
         {
             "program_name": "周末午夜場",
@@ -342,7 +342,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"0200"
+            "time": "0200"
         },
         {
             "program_name": "Beautiful Sunday (與第二台聯播)",
@@ -350,7 +350,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"0600"
+            "time": "0600"
         },
         {
             "program_name": "大城小事",
@@ -358,7 +358,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"0700"
+            "time": "0700"
         },
         {
             "program_name": "舊日的足跡",
@@ -366,7 +366,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"0810"
+            "time": "0810"
         },
         {
             "program_name": "講東講西 - 週日版",
@@ -374,7 +374,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"1000"
+            "time": "1000"
         },
         {
             "program_name": "一分鐘閱讀(精華版)",
@@ -382,7 +382,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"1215"
+            "time": "1215"
         },
         {
             "program_name": "非常人物生活雜誌",
@@ -390,7 +390,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"1300"
+            "time": "1300"
         },
         {
             "program_name": "管理新思維",
@@ -398,7 +398,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"1400"
+            "time": "1400"
         },
         {
             "program_name": "唱好音樂故事",
@@ -406,7 +406,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"1600"
+            "time": "1600"
         },
         {
             "program_name": "太陽底下新鮮事",
@@ -414,7 +414,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"1700"
+            "time": "1700"
         },
         {
             "program_name": "萬千寵愛",
@@ -422,7 +422,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"1820"
+            "time": "1820"
         },
         {
             "program_name": "大學堂",
@@ -430,7 +430,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"2000"
+            "time": "2000"
         },
         {
             "program_name": "大地書香",
@@ -438,7 +438,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"2030"
+            "time": "2030"
         },
         {
             "program_name": "港台講台",
@@ -446,7 +446,7 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"2100"
+            "time": "2100"
         },
         {
             "program_name": "我們不是怪獸",
@@ -454,17 +454,17 @@
             "station_id": "radio1",
             "station_name": "R1",
             "weekday": "0",
-            "time":"2220"
+            "time": "2220"
         }
     ],
-    "radio2":[
+    "radio2": [
         {
             "program_name": "同處一室",
             "program_id": "inclusivesociety",
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"0000"
+            "time": "0000"
         },
         {
             "program_name": "音樂關係",
@@ -472,7 +472,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"0100"
+            "time": "0100"
         },
         {
             "program_name": "輕談淺唱不夜天",
@@ -480,7 +480,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0 1 2 3 4 5 6",
-            "time":"0200"
+            "time": "0200"
         },
         {
             "program_name": "Beautiful Sunday",
@@ -488,7 +488,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"0600"
+            "time": "0600"
         },
         {
             "program_name": "玩玩星期天",
@@ -496,7 +496,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"0800"
+            "time": "0800"
         },
         {
             "program_name": "Sun 生活",
@@ -504,7 +504,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"1000"
+            "time": "1000"
         },
         {
             "program_name": "生活進行式",
@@ -512,7 +512,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"1200"
+            "time": "1200"
         },
         {
             "program_name": "家有愛寵",
@@ -520,7 +520,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"1300"
+            "time": "1300"
         },
         {
             "program_name": "好心情經理人",
@@ -528,7 +528,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"1400"
+            "time": "1400"
         },
         {
             "program_name": "Teen空海闊",
@@ -536,7 +536,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"1600"
+            "time": "1600"
         },
         {
             "program_name": "大韓璇風",
@@ -544,7 +544,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"1700"
+            "time": "1700"
         },
         {
             "program_name": "同處一室",
@@ -552,7 +552,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"1800"
+            "time": "1800"
         },
         {
             "program_name": "語妙天下",
@@ -560,7 +560,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"2000"
+            "time": "2000"
         },
         {
             "program_name": "Sci時間",
@@ -568,7 +568,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"2030"
+            "time": "2030"
         },
         {
             "program_name": "2000 靚歌再重聚",
@@ -576,7 +576,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "0",
-            "time":"2100"
+            "time": "2100"
         },
         {
             "program_name": "音樂說",
@@ -584,7 +584,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "2 3 4 5 6",
-            "time":"0000"
+            "time": "0000"
         },
         {
             "program_name": "知識會社",
@@ -592,7 +592,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"0600"
+            "time": "0600"
         },
         {
             "program_name": "灣區生活一小時",
@@ -600,7 +600,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"0900"
+            "time": "0900"
         },
         {
             "program_name": "夢想號啟航",
@@ -608,7 +608,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"1000"
+            "time": "1000"
         },
         {
             "program_name": "安哥同學會",
@@ -616,7 +616,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"1100"
+            "time": "1100"
         },
         {
             "program_name": "中文歌曲龍虎榜",
@@ -624,7 +624,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"1200"
+            "time": "1200"
         },
         {
             "program_name": "終身美麗",
@@ -632,7 +632,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"1400"
+            "time": "1400"
         },
         {
             "program_name": "150遇上170",
@@ -640,7 +640,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"1500"
+            "time": "1500"
         },
         {
             "program_name": "弦來是這樣的",
@@ -648,7 +648,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"1700"
+            "time": "1700"
         },
         {
             "program_name": "環球榜",
@@ -656,7 +656,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"1800"
+            "time": "1800"
         },
         {
             "program_name": "奮發時刻 DSE",
@@ -664,7 +664,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"2000"
+            "time": "2000"
         },
         {
             "program_name": "開卷樂",
@@ -672,7 +672,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"2030"
+            "time": "2030"
         },
         {
             "program_name": "藝文谷",
@@ -680,7 +680,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"2100"
+            "time": "2100"
         },
         {
             "program_name": "阿郎戀曲",
@@ -688,7 +688,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "6",
-            "time":"2200"
+            "time": "2200"
         },
         {
             "program_name": "Music Angel",
@@ -696,7 +696,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1",
-            "time":"0000"
+            "time": "0000"
         },
         {
             "program_name": "晨光第一線",
@@ -704,7 +704,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"0600"
+            "time": "0600"
         },
         {
             "program_name": "瘋 Show 快活人",
@@ -712,7 +712,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"1000"
+            "time": "1000"
         },
         {
             "program_name": "Made in Hong Kong 李志剛",
@@ -720,7 +720,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"1300"
+            "time": "1300"
         },
         {
             "program_name": "三五成群",
@@ -728,7 +728,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"1500"
+            "time": "1500"
         },
         {
             "program_name": "騷動音樂",
@@ -736,7 +736,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"1700"
+            "time": "1700"
         },
         {
             "program_name": "Albert Au 區瑞強",
@@ -744,7 +744,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"1900"
+            "time": "1900"
         },
         {
             "program_name": "恬淡情懷",
@@ -752,7 +752,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"2000"
+            "time": "2000"
         },
         {
             "program_name": "音樂情人",
@@ -760,7 +760,7 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"2100"
+            "time": "2100"
         },
         {
             "program_name": "愛麗絲看世界",
@@ -768,16 +768,323 @@
             "station_id": "radio2",
             "station_name": "R2",
             "weekday": "1 2 3 4 5",
-            "time":"2200"
+            "time": "2200"
         }
     ],
-    "radio3":[
-
+    "radio3": [
+        {
+            "program_name": "Sunday Late",
+            "program_id": "sundaylate",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1",
+            "time": "0000"
+        },
+        {
+            "program_name": "Night Music",
+            "program_id": "nightmusic",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1",
+            "time": "0200"
+        },
+        {
+            "program_name": "Night Music",
+            "program_id": "nightmusic",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "2 3 4 5 6 0",
+            "time": "0000"
+        },
+        {
+            "program_name": "Hong Kong Today",
+            "program_id": "hongkongtoday",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "0630"
+        },
+        {
+            "program_name": "Money Talk",
+            "program_id": "money_talk",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "0800"
+        },
+        {
+            "program_name": "Backchat",
+            "program_id": "backchat",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "0900"
+        },
+        {
+            "program_name": "Brunch with Noreen",
+            "program_id": "brunchwithnoreen",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "1000"
+        },
+        {
+            "program_name": "The Brew",
+            "program_id": "thebrew",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "1200"
+        },
+        {
+            "program_name": "News at One",
+            "program_id": "newsatone",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5 6 0",
+            "time": "1300"
+        },
+        {
+            "program_name": "Steve James",
+            "program_id": "stevejames",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "1400"
+        },
+        {
+            "program_name": "In the Common Room",
+            "program_id": "common_room",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "1700"
+        },
+        {
+            "program_name": "Newswrap",
+            "program_id": "newswrap",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "1800"
+        },
+        {
+            "program_name": "Sunset Sounds with Simon Willson",
+            "program_id": "sunsetsounds_simonwillson",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "1830"
+        },
+        {
+            "program_name": "Pete’s Magical Mystery Tour",
+            "program_id": "pete_magical_mystery_tour",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5",
+            "time": "2100"
+        },
+        {
+            "program_name": "News at Eleven",
+            "program_id": "newsateleven",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "1 2 3 4 5 6",
+            "time": "2300"
+        },
+        {
+            "program_name": "Weekend AM",
+            "program_id": "weekend_am",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6 0",
+            "time": "0700"
+        },
+        {
+            "program_name": "Hong Kong Heritage",
+            "program_id": "hongkongheritage",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "0730"
+        },
+        {
+            "program_name": "Your Home Address",
+            "program_id": "your_home",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "0830"
+        },
+        {
+            "program_name": "Saturday Yum Cha with Luisa",
+            "program_id": "saturdayyumcha",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "0900"
+        },
+        {
+            "program_name": "Michael Lance",
+            "program_id": "michaellance",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "1200"
+        },
+        {
+            "program_name": "Andrew Dembina",
+            "program_id": "andrewdembina",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "1500"
+        },
+        {
+            "program_name": "Weekend Roundup",
+            "program_id": "weekend_roundup",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6 0",
+            "time": "1800"
+        },
+        {
+            "program_name": "James Ross: Greatest Hits of Music",
+            "program_id": "greatesthitsofmusic",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "1810"
+        },
+        {
+            "program_name": "Radio 3 Mixtape",
+            "program_id": "radio3_mixtape",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "2000"
+        },
+        {
+            "program_name": "Danny’s Weekend Blenz",
+            "program_id": "dannylau",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "6",
+            "time": "2200"
+        },
+        {
+            "program_name": "Sunday Early",
+            "program_id": "sunearlyshow",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "0600"
+        },
+        {
+            "program_name": "Mind Matters",
+            "program_id": "mindmatters",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "0730"
+        },
+        {
+            "program_name": "#Hashtag Hong Kong",
+            "program_id": "hashtaghk",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "0815"
+        },
+        {
+            "program_name": "Thought for the Week",
+            "program_id": "thought_for_the_week",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "0825"
+        },
+        {
+            "program_name": "Vintage Chart Toppers",
+            "program_id": "vintage_chart_toppers",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "0830"
+        },
+        {
+            "program_name": "Sunday Escape",
+            "program_id": "sunday_escape",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "0900"
+        },
+        {
+            "program_name": "Simon’s Sunday Session",
+            "program_id": "simonsundaysession",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "1310"
+        },
+        {
+            "program_name": "Pinoy Life",
+            "program_id": "pinoy_life",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "1600"
+        },
+        {
+            "program_name": "Hong Kong Heritage",
+            "program_id": "hongkongheritage",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "1815"
+        },
+        {
+            "program_name": "Book Club",
+            "program_id": "book_club",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "1845"
+        },
+        {
+            "program_name": "Saptahik Sandesh साप्ताहिक सन्देश",
+            "program_id": "nepali",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "1900"
+        },
+        {
+            "program_name": "Hong Kong Ki Shaam ہانگ کانگ کی شام",
+            "program_id": "urdu",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "2000"
+        },
+        {
+            "program_name": "Pete’s Private Collection",
+            "program_id": "petes_private_collection",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "2100"
+        },
+        {
+            "program_name": "Sunday Late",
+            "program_id": "sundaylate",
+            "station_id": "radio3",
+            "station_name": "R3",
+            "weekday": "0",
+            "time": "2200"
+        }
     ],
-    "radio4":[
-        
-    ],
-    "radio5":[
-        
-    ]
+    "radio4": [],
+    "radio5": []
 }

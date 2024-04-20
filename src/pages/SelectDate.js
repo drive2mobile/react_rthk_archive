@@ -7,13 +7,12 @@ import SpinnerFullscreen from '../ui_components/SpinnerFullscreen';
 import ToastAlert from '../ui_components/ToastAlert';
 import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons';
-import { selectDate, selectProgram } from "../utilies/Locale";
+import { loadMore30EP, loadMore7EP, selectDate, selectDateOrEP, selectProgram, download, downloadingPleaseDontLeave, downloadCompleted, cancel } from "../utilies/Locale";
 import { downloadM3u8Suffix, downloadURLSample } from "../utilies/Constants";
 
-const SelectDate = () => {
+const SelectDate = ({lang}) => {
     const navigate = useNavigate();
     const urlParams = new URLSearchParams(window.location.search);
-    const[lang, setLang] = useState('tc');
     const [returnURL, setReturnURL] = useState('');
     const [programName, setProgramName] = useState('');
     const [programId, setProgramId] = useState('');
@@ -138,6 +137,9 @@ const SelectDate = () => {
         var newDateList = [];
         var dateCount = 0;
         var successCount = 0;
+        
+        var tryCount = 0;
+        var errorCount = 0;
 
         while(successCount <= refreshDateCount)
         {
@@ -155,6 +157,7 @@ const SelectDate = () => {
             if (weekday.toString().includes(currWeekday) == false)
                 continue;
 
+            tryCount++;
             try
             {
                 const response = await axios.get(currDownloadURL);
@@ -176,10 +179,12 @@ const SelectDate = () => {
 
                 // await new Promise(resolve => setTimeout(resolve, 50));
                 isSuccess = true;
+                successCount++;
             }
             catch
             {
                 isSuccess = false;
+                errorCount++;
             }
 
             if (isSuccess)
@@ -194,9 +199,14 @@ const SelectDate = () => {
                     const fileSize = (segmentCount * 120 / 1024).toFixed(2);
                     newDateList.push({"date": formattedDate, "duration": `${minutes}:${seconds}`, "size":fileSize}); 
                 }       
-
-                successCount++;
             }
+
+            if (errorCount > 5)
+            {
+                if (errorCount > (tryCount/2))
+                break;
+            }
+
         }
         setDateList(prevArr => prevArr.concat(newDateList));
         
@@ -337,7 +347,7 @@ const SelectDate = () => {
                                 <img src={`${process.env.PUBLIC_URL}/images/${programId}.jpg`} 
                                     style={{height:'120px', width:'auto', padding:'10px', borderRadius:'15px'}}/>
                             </div>
-                            <div style={{width:'calc(100% - 120px)'}}>選擇日期/期數：</div>
+                            <div style={{width:'calc(100% - 120px)'}}>{selectDateOrEP[lang]}</div>
                         </div>
 
                         {/* ===== DISPLAY LIST ==== */}
@@ -378,28 +388,28 @@ const SelectDate = () => {
                                     <div style={{width:'100%', height:'100px'}}>
                                         {isDownloading == false && isDownloadFinish == false &&
                                             <div style={{height:'100%', lineHeight:'100px', textAlign:'center'}}>
-                                                <Button variant="light" style={{width:'20%', height:'40px'}} 
-                                                onClick={() => setTriggerDownload(true)}>下載</Button>
+                                                <Button variant="light" style={{width:'100px', height:'40px'}} 
+                                                onClick={() => setTriggerDownload(true)}>{download[lang]}</Button>
                                             </div>
                                         }
                                         {isDownloading == true && isDownloadFinish == false &&
                                             <div style={{height:'100%', textAlign:'center'}}>
                                                 <div style={{lineHeight:'30px', fontSize:'14px'}}>
-                                                    下載中，請勿離開頁面
+                                                    {downloadingPleaseDontLeave[lang]}
                                                 </div>
                                                 <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
                                                     <ProgressBar variant="success" now={downloadProgress} style={{width:'60%'}} />
                                                 </div>
                                                 <div style={{lineHeight:'40px', textAlign:'center'}}>
-                                                    <Button variant="light" style={{width:'20%', height:'35px'}} 
-                                                    onClick={() => isCancelDownload.current = true}>取消</Button>
+                                                    <Button variant="light" style={{width:'100px', height:'35px'}} 
+                                                    onClick={() => isCancelDownload.current = true}>{cancel[lang]}</Button>
                                                 </div>
                                             </div>
                                         }
                                         {isDownloading == false && isDownloadFinish == true &&
                                             <div style={{height:'100%', textAlign:'center'}}>
                                                 <div style={{lineHeight:'30px', fontSize:'14px'}}>
-                                                    下載完成
+                                                    {downloadCompleted[lang]}
                                                 </div>
                                                 <div style={{lineHeight:'30px', width:'100%', display:'flex', flexDirection:'column', alignItems:'center'}}>
                                                     <ProgressBar variant="success" now={100} style={{width:'60%'}} />
@@ -417,11 +427,11 @@ const SelectDate = () => {
                                 <Button variant="light" style={{marginRight:'5px'}} onClick={()=>{
                                     setRefreshDateCount(7);
                                     setTriggerRefreshDate(true);
-                                }}>載入更多(7期)</Button>
+                                }}>{loadMore7EP[lang]}</Button>
                                 <Button variant="light" style={{marginLeft:'5px'}} onClick={()=>{
                                     setRefreshDateCount(30);
                                     setTriggerRefreshDate(true)
-                                }}>載入更多(30期)</Button>
+                                }}>{loadMore30EP[lang]}</Button>
                             </div>
                         </div>    
                         </div>

@@ -1085,6 +1085,279 @@
             "time": "2200"
         }
     ],
-    "radio4": [],
+    "radio4": [
+        {
+            "program_name": "Night Music 長夜細聽",
+            "program_id": "nightmusic",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0 1 2 3 4 5 6",
+            "time": "0000"
+        },
+        {
+            "program_name": "Aubade",
+            "program_id": "Aubad",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0 1 2 3 4 5 6",
+            "time": "0600"
+        },
+        {
+            "program_name": "Sunday Morning on 4",
+            "program_id": "sundaymorning",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "0700"
+        },
+        {
+            "program_name": "Ellington's Mistress",
+            "program_id": "ellingtonsmistress",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "1000"
+        },
+        {
+            "program_name": "Church Service",
+            "program_id": "churchservice",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "1100"
+        },
+        {
+            "program_name": "Songs of the Earth 大地之歌",
+            "program_id": "songs_of_the_earth",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "1200"
+        },
+        {
+            "program_name": "Delight in a Bite 一時之選",
+            "program_id": "delightinabite",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0 1 2 3 4 5 6",
+            "time": "1300"
+        },
+        {
+            "program_name": "Sunday Opera 歌劇世界",
+            "program_id": "opera",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "1400"
+        },
+        {
+            "program_name": "Children's Corner 親親童樂日",
+            "program_id": "children",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "1700"
+        },
+        {
+            "program_name": "Tunes to Remember 人約黃昏後",
+            "program_id": "tunes_to_remember",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "1800"
+        },
+        {
+            "program_name": "Music Stories 音樂故事",
+            "program_id": "musicstories",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "2000"
+        },
+        {
+            "program_name": "Sunday Divertimento 星夜樂逍遙",
+            "program_id": "sundaydivertimento",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "2100"
+        },
+        {
+            "program_name": "Jazzing Up 爵士靈感",
+            "program_id": "JazzingUp",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "0",
+            "time": "2300"
+        },
+        {
+            "program_name": "The Classical and The Curious 爾想不到",
+            "program_id": "theclassicalandthecurious",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "0700"
+        },
+        {
+            "program_name": "Play by Ear 週末隨想",
+            "program_id": "Playbyear",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "1000"
+        },
+        {
+            "program_name": "Looking 4ward 東張4望",
+            "program_id": "looking4ward",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "1200"
+        },
+        {
+            "program_name": "R4 Music Academy 我哋都係音樂系！",
+            "program_id": "r4musicacademy",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "1400"
+        },
+        {
+            "program_name": "Music Insider 新聲事務所",
+            "program_id": "music_insider",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "1600"
+        },
+        {
+            "program_name": "Arts News 藝壇快訊",
+            "program_id": "ArtsNews",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4 5 6",
+            "time": "1800"
+        },
+        {
+            "program_name": "R4 This Week 四台情報站",
+            "program_id": "r4thisweek",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "1815"
+        },
+        {
+            "program_name": "Cantilena 自投羅網",
+            "program_id": "Cantilena",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "1900"
+        },
+        {
+            "program_name": "Live on 4 四台音樂廳",
+            "program_id": "Liveon4",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "2 3 4 6",
+            "time": "2000"
+        },
+        {
+            "program_name": "Musical Years 那些年的樂事",
+            "program_id": "musicalyears",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "6",
+            "time": "2200"
+        },
+        {
+            "program_name": "Morning Call 清晨妙韻",
+            "program_id": "morningcall",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4 5",
+            "time": "0700"
+        },
+        {
+            "program_name": "Non-stop Classics 美樂無休",
+            "program_id": "NonstopClassics",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4 5",
+            "time": "1000"
+        },
+        {
+            "program_name": "Live on 4 Repeat 四台音樂廳 重播",
+            "program_id": "Liveon4_rpt",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4",
+            "time": "1400"
+        },
+        {
+            "program_name": "In the Mood for Music 易聆肆陸",
+            "program_id": "inthemoodformusic",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4",
+            "time": "1600"
+        },
+        {
+            "program_name": "Stop-time... 遊‧樂園",
+            "program_id": "stoptime",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4 5",
+            "time": "1818"
+        },
+        {
+            "program_name": "Moment Musical 音樂瞬間",
+            "program_id": "moment_musical",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1",
+            "time": "2000"
+        },
+        {
+            "program_name": "Nocturne 夜心曲",
+            "program_id": "nocturne",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4 5",
+            "time": "2200"
+        },
+        {
+            "program_name": "Reflections 晚禱",
+            "program_id": "Reflection",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "1 2 3 4 5",
+            "time": "2357"
+        },
+        {
+            "program_name": "Chamber Resonance 樂有所思",
+            "program_id": "chamberresonance",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "5",
+            "time": "2000"
+        },
+        {
+            "program_name": "Music Stories (Repeat) 音樂故事（重播）",
+            "program_id": "musicstories_r",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "5",
+            "time": "1400"
+        },
+        {
+            "program_name": "Music from China 樂在神州",
+            "program_id": "MusicfromChina",
+            "station_id": "radio4",
+            "station_name": "R4",
+            "weekday": "5",
+            "time": "1500"
+        }
+    ],
     "radio5": []
 }

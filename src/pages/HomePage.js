@@ -46,8 +46,6 @@ const HomePage = ({lang, setLang}) => {
                     <div className={styles.contentContainer}>
 
                         <div className={styles.logoTitleContainer}>
-
-
                             <img src={`https://webappdev.info/rthk/images/rthk_logo.png`} style={{ width: '50%', height: 'auto' }} />
                             <div style={{ color: '#484848', fontSize: '25px', marginTop: '30px' }}>{rthkArchive[lang]}</div>
                             <div style={{ color: '#484848', fontSize: '15px', marginTop: '20px', width:'80%', textAlign:'center' }}>{allContentAreFromInternet[lang]}</div>

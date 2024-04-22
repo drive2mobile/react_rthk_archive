@@ -2,7 +2,6 @@ import { Button, Fade } from 'react-bootstrap';
 import styles from './styles/HomePageStyle.module.css';
 import * as ReactIcon from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { allContentAreFromInternet, archive, bookmarks, rthkArchive, tutorial } from '../utilies/Locale';
 import { AutoTextSize } from 'auto-text-size';
 import { setStorageItemDB } from '../utilies/LocalStorage';

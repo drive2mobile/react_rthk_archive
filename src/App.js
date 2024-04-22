@@ -3,7 +3,6 @@ import SelectProgram from "./pages/SelectProgram";
 import SelectDate from "./pages/SelectDate";
 import HomePage from "./pages/HomePage";
 import Bookmark from "./pages/Bookmark";
-import DownloadProgram from "./pages/DownloadProgram";
 import { useEffect, useState } from "react";
 import { getStorageItemDB, setStorageItemDB } from "./utilies/LocalStorage";
 
@@ -12,7 +11,6 @@ function App() {
 
     useEffect(() => {
         initialize();
-        
     },[])
 
     async function initialize()
@@ -27,10 +25,6 @@ function App() {
             await setStorageItemDB('lang', newLang2);
             setLang('tc');
         }
-
-        // const newLang2 = {'lang':'en'};
-        // await setStorageItemDB('lang', newLang2);
-        // setLang('en');
     }
 
     return (
@@ -40,7 +34,6 @@ function App() {
                 <Route exact path="/selectprogram" element={<SelectProgram lang={lang}/>}></Route>
                 <Route exact path="/selectdate" element={<SelectDate lang={lang}/>}></Route>
                 <Route exact path="/bookmark" element={<Bookmark lang={lang}/>}></Route>
-                <Route exact path="/download" element={<DownloadProgram />}></Route>
             </Routes>
         </BrowserRouter>
     );

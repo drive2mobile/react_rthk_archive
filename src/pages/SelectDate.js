@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Form, Button, Fade, ProgressBar } from 'react-bootstrap';
+import { Button, Fade, ProgressBar } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AppBar from '../ui_components/AppBar';
 import styles from './styles/SelectDateStyle.module.css';
@@ -7,8 +7,8 @@ import SpinnerFullscreen from '../ui_components/SpinnerFullscreen';
 import ToastAlert from '../ui_components/ToastAlert';
 import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons';
-import { loadMore30EP, loadMore7EP, selectDate, selectDateOrEP, selectProgram, download, downloadingPleaseDontLeave, downloadCompleted, cancel } from "../utilies/Locale";
-import { downloadM3u8Suffix, downloadURLSample } from "../utilies/Constants";
+import { loadMore30EP, loadMore7EP, selectDateOrEP, download, downloadingPleaseDontLeave, downloadCompleted, cancel } from "../utilies/Locale";
+import { downloadM3u8Suffix, downloadURLSample, jsonFileSuffix } from "../utilies/Constants";
 
 const SelectDate = ({lang}) => {
     const navigate = useNavigate();
@@ -86,7 +86,7 @@ const SelectDate = ({lang}) => {
 
     async function initialize()
     {
-        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json`);
+        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json${jsonFileSuffix}`);
         const tempProgramList = await responsePrograms.json();
 
         var newProgramList = {};

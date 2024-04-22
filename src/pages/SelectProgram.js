@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Fade } from 'react-bootstrap';
+import { Button, Fade } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AppBar from '../ui_components/AppBar';
 import styles from './styles/SelectProgramStyle.module.css';
 import SpinnerFullscreen from '../ui_components/SpinnerFullscreen';
 import ToastAlert from '../ui_components/ToastAlert';
-import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons';
 import { selectProgram } from "../utilies/Locale";
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
-import { stationList, weekdayList } from "../utilies/Constants";
+import { jsonFileSuffix, stationList, weekdayList } from "../utilies/Constants";
 import { AutoTextSize } from "auto-text-size";
 
 const SelectProgram = ({lang}) => {
-    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
-    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px'}} />;
     const navigate = useNavigate();
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -32,6 +29,9 @@ const SelectProgram = ({lang}) => {
 
     const[toastText, setToastText] = useState('');
     const[toastTrigger,setToastTrigger] = useState(0);
+
+    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
+    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px'}} />;
 
     useEffect(() => {
         if (lang != '')
@@ -56,7 +56,7 @@ const SelectProgram = ({lang}) => {
         const currWeekday = date.getDay();
         setSelectedWeekday(currWeekday);
 
-        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json`);
+        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json${jsonFileSuffix}`);
         const newProgramList = await responsePrograms.json();
         setProgramList(newProgramList);
 

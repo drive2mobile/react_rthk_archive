@@ -1359,5 +1359,366 @@
             "time": "1500"
         }
     ],
-    "radio5": []
+    "radio5": [
+        {
+            "program_name": "戲曲之夜",
+            "program_id": "tconight",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6 0",
+            "time": "0000"
+        },
+        {
+            "program_name": "越夜粵精彩",
+            "program_id": "tcoexcitingnight",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6",
+            "time": "0200"
+        },
+        {
+            "program_name": "清晨爽利",
+            "program_id": "hellosunrise",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6",
+            "time": "0500"
+        },
+        {
+            "program_name": "晨早新聞天地",
+            "program_id": "hktoday",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6",
+            "time": "0630"
+        },
+        {
+            "program_name": "自在早晨",
+            "program_id": "relax_morning",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5",
+            "time": "0800"
+        },
+        {
+            "program_name": "香江暖流",
+            "program_id": "elderly",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5",
+            "time": "1000"
+        },
+        {
+            "program_name": "戲曲天地",
+            "program_id": "tco",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6 0",
+            "time": "1300"
+        },
+        {
+            "program_name": "有你同行",
+            "program_id": "standbyme_2011",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5",
+            "time": "1600"
+        },
+        {
+            "program_name": "傍晚新聞天地",
+            "program_id": "6oclocknews",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6 0",
+            "time": "1800"
+        },
+        {
+            "program_name": "優閒安多Fun",
+            "program_id": "what_a_cozy_evening",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5",
+            "time": "1835"
+        },
+        {
+            "program_name": "長進課程:驀然回首",
+            "program_id": "elderly_song_lyrics",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1",
+            "time": "2000"
+        },
+        {
+            "program_name": "長進課程: 故宮聲音再導航",
+            "program_id": "elderly_audioguide_museum_2",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1",
+            "time": "2030"
+        },
+        {
+            "program_name": "教學有心人",
+            "program_id": "heart_to_class",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1",
+            "time": "2100"
+        },
+        {
+            "program_name": "晚間新聞天地",
+            "program_id": "eveningnews",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6 0",
+            "time": "2200"
+        },
+        {
+            "program_name": "戲曲之夜",
+            "program_id": "tconight",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "1 2 3 4 5 6 0",
+            "time": "1020"
+        },
+        {
+            "program_name": "善報",
+            "program_id": "goodpost",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "2",
+            "time": "2000"
+        },
+        {
+            "program_name": "捉心理 (重播)",
+            "program_id": "read_your_mind_rerun",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "2",
+            "time": "2100"
+        },
+        {
+            "program_name": "繽紛旅程",
+            "program_id": "colorfuljourney",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "3",
+            "time": "2000"
+        },
+        {
+            "program_name": "香港留聲機 (重播)",
+            "program_id": "hong_kong_phonograph",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "3",
+            "time": "2100"
+        },
+        {
+            "program_name": "綠色 Fighting",
+            "program_id": "green_fighting",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "4",
+            "time": "2000"
+        },
+        {
+            "program_name": "世界文學之旅 (重播)",
+            "program_id": "world_lit_journey",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "4",
+            "time": "2100"
+        },
+        {
+            "program_name": "樂齡是敢的",
+            "program_id": "elderly_go",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "5",
+            "time": "2000"
+        },
+        {
+            "program_name": "綠．遊蹤",
+            "program_id": "greenroad",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "5",
+            "time": "2100"
+        },
+        {
+            "program_name": "好歌安哥",
+            "program_id": "bigbrothersong",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "0800"
+        },
+        {
+            "program_name": "耆力量",
+            "program_id": "Apower",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "1000"
+        },
+        {
+            "program_name": "灣區粵韻",
+            "program_id": "greater_bay_area_tco",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "1600"
+        },
+        {
+            "program_name": "聽多啲識多啲",
+            "program_id": "listen_know_more",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "1700"
+        },
+        {
+            "program_name": "五台小編推介",
+            "program_id": "r5highlight",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "1820"
+        },
+        {
+            "program_name": "豐富的人生",
+            "program_id": "lifeabu",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "1830"
+        },
+        {
+            "program_name": "動人的中國旋律",
+            "program_id": "chinese_music",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "1900"
+        },
+        {
+            "program_name": "古文觀止 (重播)",
+            "program_id": "chinese_classical_prose",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "2000"
+        },
+        {
+            "program_name": "中國寓言 (重播)",
+            "program_id": "chinesefable",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "2030"
+        },
+        {
+            "program_name": "中華五千年 (重播)",
+            "program_id": "culture_5000years",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "2100"
+        },
+        {
+            "program_name": "文采飛揚 (重播)",
+            "program_id": "captivating_chinese_literature",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "6",
+            "time": "2130"
+        },
+        {
+            "program_name": "周末午夜場(與第一台聯播)",
+            "program_id": "radiodramaonsaturday",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "0200"
+        },
+        {
+            "program_name": "Beautiful Sunday（與第二台聯播）",
+            "program_id": "beautifulsunday",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "0600"
+        },
+        {
+            "program_name": "有緣相會",
+            "program_id": "music_of_my_life",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "0700"
+        },
+        {
+            "program_name": "空中結緣",
+            "program_id": "chances",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "0900"
+        },
+        {
+            "program_name": "老細一齊嚟",
+            "program_id": "young_and_old_alike",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "1000"
+        },
+        {
+            "program_name": "生活存關愛",
+            "program_id": "lifeislove",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "1200"
+        },
+        {
+            "program_name": "美麗人生",
+            "program_id": "merry_mary",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "1700"
+        },
+        {
+            "program_name": "五台小編推介 (重播)",
+            "program_id": "r5highlight_sun",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "1820"
+        },
+        {
+            "program_name": "天降甘霖",
+            "program_id": "sunservice",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "1830"
+        },
+        {
+            "program_name": "基哥K歌",
+            "program_id": "oh_kei_songs",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "1900"
+        },
+        {
+            "program_name": "星月爭輝_艾力",
+            "program_id": "starandmoon_eric",
+            "station_id": "radio5",
+            "station_name": "R5",
+            "weekday": "0",
+            "time": "2100"
+        }
+    ]
 }

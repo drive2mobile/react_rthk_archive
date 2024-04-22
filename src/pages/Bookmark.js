@@ -8,14 +8,12 @@ import ToastAlert from '../ui_components/ToastAlert';
 import * as Icon from 'react-bootstrap-icons';
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
 import { bookmarks } from "../utilies/Locale";
+import { jsonFileSuffix } from "../utilies/Constants";
 
 const Bookmark = ({lang}) => {
-    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
     const navigate = useNavigate();
-    const urlParams = new URLSearchParams(window.location.search);
 
     const [bookmarkList, setBookmarkList] = useState({});
-    const [programList, setProgramList] = useState({});
     const [displayList, setDisplayList] = useState([]);
 
     const[showLoading, setShowLoading] = useState(false);
@@ -24,6 +22,8 @@ const Bookmark = ({lang}) => {
     const[toastText, setToastText] = useState('');
     const[toastTrigger,setToastTrigger] = useState(0);
 
+    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
+
     useEffect(() => {
         if (lang != '')
             initialize();
@@ -31,7 +31,7 @@ const Bookmark = ({lang}) => {
 
     async function initialize()
     {
-        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json`);
+        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json${jsonFileSuffix}`);
         const tempProgramList = await responsePrograms.json();
         var newProgramList = {};
         for (const key in tempProgramList)
@@ -42,7 +42,6 @@ const Bookmark = ({lang}) => {
                 newProgramList[currItem[i]['program_id']] = currItem[i];
             }
         }
-        setProgramList(newProgramList);
 
         const newBookmarkList =  await getStorageItemDB('bookmark');
         setBookmarkList(newBookmarkList);

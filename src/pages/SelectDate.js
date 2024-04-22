@@ -41,21 +41,17 @@ const SelectDate = ({lang}) => {
 
     var backBtn = <Icon.ArrowLeft onClick={() => 
         {
-            if (isDownloading == true)
-            {
-                setToastText('請等候下載完成');
-                setToastTrigger(prev => prev+1);
-            }
-            else
-            {
-                navigate(returnURL, { replace: true });   
-            }              
+            isCancelDownload.current = true;
+            navigate(returnURL, { replace: true });    
         }
-    } style={{width:'50px', height:'50px', padding:'10px'}} />;
-    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px'}} />;
+    } style={{width:'50px', height:'50px', padding:'10px', cursor:'pointer'}} />;
+    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px', cursor:'pointer'}} />;
 
     useEffect(() => {
         initialize();
+        return () => {
+            isCancelDownload.current = true;
+        };
     },[])
 
     useEffect(() => {
@@ -76,7 +72,7 @@ const SelectDate = ({lang}) => {
         async function innerFun()
         {
             if (triggerDownload)
-            {
+            {   
                 await downloadProgram();
                 setTriggerDownload(false);
             }
@@ -95,7 +91,8 @@ const SelectDate = ({lang}) => {
             const currItem = tempProgramList[key];
             for (var i=0 ; i<currItem.length ; i++)
             {
-                newProgramList[currItem[i]['program_id']] = currItem[i];
+                if (!newProgramList[currItem[i]['program_id']])
+                    newProgramList[currItem[i]['program_id']] = currItem[i];
             }
         }
 
@@ -284,10 +281,7 @@ const SelectDate = ({lang}) => {
                 //     break;
             }
         }
-        catch
-        {
-
-        }
+        catch { }
        
         if (isCancelDownload.current == false)
         { 
@@ -368,7 +362,7 @@ const SelectDate = ({lang}) => {
                                         } 
                                     }}
                                 >
-                                    <div style={{width:'100%', lineHeight:'50px', display:'flex', flexDirection:'row'}}>
+                                    <div style={{width:'100%', lineHeight:'50px', display:'flex', flexDirection:'row', cursor:'pointer'}}>
                                         <div style={{width:'75%', paddingLeft:'20px'}}>
                                             {`${item['date'].substring(6,8)}-${item['date'].substring(4,6)}-${item['date'].substring(0,4)}`}
                                         </div>

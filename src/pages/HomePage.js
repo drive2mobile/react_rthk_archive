@@ -22,22 +22,22 @@ const HomePage = ({lang, setLang}) => {
                 <div>
                     <div style={{width:'100%', height:'40px', lineHeight:'40px', display:'flex', flexDirection:'row', justifyContent:'right'}}>
                         <div style={lang == 'tc' ?
-                            {width:'30px', color:'#484848', fontWeight:'bold'} : 
-                            {width:'30px', color:'#979797', fontWeight:'normal'}}
+                            {width:'30px', color:'#484848', fontWeight:'bold', cursor:'pointer'} : 
+                            {width:'30px', color:'#979797', fontWeight:'normal', cursor:'pointer'}}
                             onClick={() => {changeLang('tc')}}
                         >
                             繁
                         </div>
                         <div style={lang == 'sc' ?
-                            {width:'30px', color:'#484848', fontWeight:'bold'} : 
-                            {width:'30px', color:'#979797', fontWeight:'normal'}}
+                            {width:'30px', color:'#484848', fontWeight:'bold', cursor:'pointer'} : 
+                            {width:'30px', color:'#979797', fontWeight:'normal', cursor:'pointer'}}
                             onClick={() => {changeLang('sc')}}
                         >
                             簡
                         </div>
                         <div style={lang == 'en' ?
-                            {width:'30px', color:'#484848', fontWeight:'bold', marginRight:'10px'} : 
-                            {width:'30px', color:'#979797', fontWeight:'normal', marginRight:'10px'}}
+                            {width:'30px', color:'#484848', fontWeight:'bold', marginRight:'10px', cursor:'pointer'} : 
+                            {width:'30px', color:'#979797', fontWeight:'normal', marginRight:'10px', cursor:'pointer'}}
                             onClick={() => {changeLang('en')}}
                         >Eng</div>
                     </div>
@@ -45,7 +45,7 @@ const HomePage = ({lang, setLang}) => {
                     <div className={styles.contentContainer}>
 
                         <div className={styles.logoTitleContainer}>
-                            <img src={`https://webappdev.info/rthk/images/rthk_logo.png`} style={{ width: '50%', height: 'auto' }} />
+                            <img src={`https://webappdev.info/rthkarchive/images/rthk_logo.png`} style={{ width: '50%', height: 'auto' }} />
                             <div style={{ color: '#484848', fontSize: '25px', marginTop: '30px' }}>{rthkArchive[lang]}</div>
                             <div style={{ color: '#484848', fontSize: '15px', marginTop: '20px', width:'80%', textAlign:'center' }}>{allContentAreFromInternet[lang]}</div>
                         </div>
@@ -69,7 +69,7 @@ const HomePage = ({lang, setLang}) => {
                                 </div>
                             </Button>
 
-                            <Button variant="light" size='lg' style={{ width: '25%', height: '130px'}} onClick={() => navigate('/')}>
+                            <Button variant="light" size='lg' style={{ width: '25%', height: '130px'}} onClick={() => navigate('/tutorial')}>
                                 <div>
                                     <ReactIcon.QuestionSquare style={{ width: '50px', height: '50px', marginBottom: '10px' }} />
                                     <div>

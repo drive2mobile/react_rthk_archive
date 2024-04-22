@@ -30,8 +30,8 @@ const SelectProgram = ({lang}) => {
     const[toastText, setToastText] = useState('');
     const[toastTrigger,setToastTrigger] = useState(0);
 
-    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px'}} />;
-    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px'}} />;
+    var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px', cursor:'pointer'}} />;
+    var shareBtn = <Icon.ShareFill onClick={() => shareLink() } style={{width:'50px', height:'50px', padding:'13px', cursor:'pointer'}} />;
 
     useEffect(() => {
         if (lang != '')

@@ -54,6 +54,7 @@
     border: 1px solid #e2e2e2;
     line-height: 50px;
     margin: 4px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

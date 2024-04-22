@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { Fade } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AppBar from '../ui_components/AppBar';
-import styles from './styles/BookmarkStyle.module.css';
+import styles from './styles/TutorialStyle.module.css';
 import SpinnerFullscreen from '../ui_components/SpinnerFullscreen';
 import ToastAlert from '../ui_components/ToastAlert';
 import * as Icon from 'react-bootstrap-icons';
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
-import { bookmarks } from "../utilies/Locale";
+import { aboutMe, aboutMeDetail, bookmarks, contactMe, contactMeDetail, howToListen, tutorial } from "../utilies/Locale";
 import { jsonFileSuffix } from "../utilies/Constants";
 
-const Bookmark = ({lang}) => {
+const Tutorial = ({lang}) => {
     const navigate = useNavigate();
 
     const [bookmarkList, setBookmarkList] = useState({});
@@ -85,55 +85,45 @@ const Bookmark = ({lang}) => {
             <div style={{height:'100dvh'}}>
 
                 {/* ===== APP BAR ===== */}
-                <AppBar leftIcon={backBtn} Header={bookmarks[lang]} rightIcon={null}></AppBar>
+                <AppBar leftIcon={backBtn} Header={tutorial[lang]} rightIcon={null}></AppBar>
 
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
                     <div className={styles.contentContainer}>
                         
                         {/* ===== LEFT SECTION ===== */}
                         <div className={styles.leftSectionContainer}>
-                            <div style={{width:'120px'}}>
-                                <Icon.Bookmark 
-                                    style={{height:'100px', width:'100px'}}/>
+                            <div style={{width:'100%', textAlign:'center'}}>
+                            <img src={`${process.env.PUBLIC_URL}/images/sheep.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/>
                             </div>
-                            <div style={{width:'calc(100% - 120px)'}}>{bookmarks[lang]}</div>
+                            <div style={{ marginTop:'50px',borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{aboutMe[lang]}</div>
+                            <div style={{ margin:'5px', color:'#484848', fontSize:'16px'}}>
+                                {aboutMeDetail[lang]}
+                            </div>
+                            
+                            <div style={{ marginTop:'30px', borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{contactMe[lang]}</div>
+                            <div style={{ margin:'5px', color:'#484848', fontSize:'16px'}}>
+                                {contactMeDetail[lang]}
+                            </div>
                         </div>
 
+                        {/* ===== RIGHT SECTION ===== */}
+                        <div className={styles.rightSectionContainer}>
+                            <div style={{width:'100%', textAlign:'center'}}>
+                            <img src={`${process.env.PUBLIC_URL}/images/listen.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/>
+                            </div>
 
-                        {/* ===== SELECT PROGRAM =====  */}
-                        <div className={styles.programContainer}>
-                        <div className={styles.programSubContainer}>
-                            {displayList.length > 0 && displayList.map((item, index) => (
-                                <div 
-                                    className={styles.program}
-                                    key={index}   
-                                    onClick={() => { navigate(`/selectdate?programID=${item['program_id']}&prevPage=bookmark`)}}
-                                >
-                                    <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
-                                            alignItems:'center', padding:'4px'}}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/${item['program_id']}.jpg`} 
-                                            style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
-                                        ></img>
-                                    </div>
-                                    <div style={{width:'calc(100% - 60px)'}}>
-                                        {item['program_name']}
-                                    </div>
-                                    <div style={{width:'60px', height:'50px', textAlign:'center', display:'flex', flexDirection:'column', justifyContent:'center'}}
-                                        onClick={async(e) => {
-                                            e.stopPropagation();
-                                            await addBookmark(item['program_id']);
-                                        }}
-                                    >
-                                        {bookmarkList.hasOwnProperty(item['program_id']) ? 
-                                            <Icon.StarFill style={{width:'20px', height:'20px', color:'#FBFA0D', margin:'auto'}}/> :
-                                            <Icon.Star style={{width:'20px', height:'20px', color:'#6C6C6C', margin:'auto'}}/>
-                                        }
-                                    </div>
-                                </div>     
-                            ))}
-                        </div>
-                        </div>
-
+                            <div style={{ marginTop:'50px', borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{howToListen[lang]}</div>
+                            <div style={{ margin:'5px', color:'#484848', fontSize:'16px'}}>
+                                Android:<br/>
+                                VLC: <a href='https://play.google.com/store/apps/details?id=org.videolan.vlc&hl=en&gl=US'>VLC for Android - Google Play</a><br/>
+                                MX Video: <a href='https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad&hl=en&gl=US'>MX Player - Google Play</a><br/><br/>
+                            </div>
+                            <div style={{ margin:'5px', color:'#484848', fontSize:'16px'}}>
+                                iPhone: <br/>
+                                VLC: <a href='https://apps.apple.com/us/app/vlc-media-player/id650377962'>VLC media player - Apple Store</a><br/>
+                                MX Video Player HD: <a href='https://apps.apple.com/us/app/mx-video-player-hd/id1425445169'>MX Video Player HD - Apple Store</a><br/>
+                            </div>
+                        </div> 
                     </div>
                 </Fade>
             </div>
@@ -141,4 +131,4 @@ const Bookmark = ({lang}) => {
     )
 }
 
-export default Bookmark
+export default Tutorial

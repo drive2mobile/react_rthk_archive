@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import Bookmark from "./pages/Bookmark";
 import { useEffect, useState } from "react";
 import { getStorageItemDB, setStorageItemDB } from "./utilies/LocalStorage";
+import Tutorial from "./pages/Tutorial";
 
 function App() {
     const[lang, setLang] = useState('');
@@ -28,12 +29,13 @@ function App() {
     }
 
     return (
-        <BrowserRouter basename="/rthk">
+        <BrowserRouter basename="/rthkarchive">
             <Routes>
                 <Route exact path="/" element={<HomePage lang={lang} setLang={setLang}/>}></Route>
                 <Route exact path="/selectprogram" element={<SelectProgram lang={lang}/>}></Route>
                 <Route exact path="/selectdate" element={<SelectDate lang={lang}/>}></Route>
                 <Route exact path="/bookmark" element={<Bookmark lang={lang}/>}></Route>
+                <Route exact path="/tutorial" element={<Tutorial lang={lang}/>}></Route>
             </Routes>
         </BrowserRouter>
     );

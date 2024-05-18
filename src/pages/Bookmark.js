@@ -9,6 +9,7 @@ import * as Icon from 'react-bootstrap-icons';
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
 import { bookmarks } from "../utilies/Locale";
 import { jsonFileSuffix } from "../utilies/Constants";
+import ReactPlayer from "react-player";
 
 const Bookmark = ({lang}) => {
     const navigate = useNavigate();

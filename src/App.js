@@ -29,7 +29,7 @@ function App() {
     }
 
     return (
-        <BrowserRouter basename="/rthkarchive">
+        <BrowserRouter basename="/">
             <Routes>
                 <Route exact path="/" element={<HomePage lang={lang} setLang={setLang}/>}></Route>
                 <Route exact path="/selectprogram" element={<SelectProgram lang={lang}/>}></Route>

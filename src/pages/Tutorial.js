@@ -6,7 +6,7 @@ import styles from './styles/TutorialStyle.module.css';
 import SpinnerFullscreen from '../ui_components/SpinnerFullscreen';
 import ToastAlert from '../ui_components/ToastAlert';
 import * as Icon from 'react-bootstrap-icons';
-import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
+import { checkImageExistsInIndexedDB, getImageFromIndexedDB, getStorageItemDB, saveImageToIndexedDB, setStorageItemDB } from "../utilies/LocalStorage";
 import { aboutMe, aboutMeDetail, bookmarks, contactMe, contactMeDetail, howToListen, tutorial } from "../utilies/Locale";
 import { jsonFileSuffix } from "../utilies/Constants";
 
@@ -21,6 +21,9 @@ const Tutorial = ({lang}) => {
 
     const[toastText, setToastText] = useState('');
     const[toastTrigger,setToastTrigger] = useState(0);
+
+    const [img1, setImg1] = useState(null);
+    const [img2, setImg2] = useState(null);
 
     var backBtn = <Icon.ArrowLeft onClick={() => navigate('/', { replace: true })} style={{width:'50px', height:'50px', padding:'10px', cursor:'pointer'}} />;
 
@@ -59,19 +62,6 @@ const Tutorial = ({lang}) => {
         setShowContent(true);
     }
 
-    async function addBookmark(programId)
-    {
-        const newBookmark = {...bookmarkList};
-
-        if (newBookmark.hasOwnProperty(programId))
-            delete newBookmark[programId];
-        else
-            newBookmark[programId] = programId;
-        
-        setBookmarkList(newBookmark);
-        await setStorageItemDB('bookmark', newBookmark);
-    }
-
     return (
         <div className={styles.body}>
 
@@ -90,10 +80,12 @@ const Tutorial = ({lang}) => {
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
                     <div className={styles.contentContainer}>
                         
+                        <img src={img1} />
+
                         {/* ===== LEFT SECTION ===== */}
                         <div className={styles.leftSectionContainer}>
                             <div style={{width:'100%', textAlign:'center'}}>
-                            <img src={`${process.env.PUBLIC_URL}/images/sheep.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/>
+                            {/* <img src={`${process.env.PUBLIC_URL}/images/sheep.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/> */}
                             </div>
                             
                             <div style={{ marginTop:'30px', borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{contactMe[lang]}</div>
@@ -105,7 +97,7 @@ const Tutorial = ({lang}) => {
                         {/* ===== RIGHT SECTION ===== */}
                         <div className={styles.rightSectionContainer}>
                             <div style={{width:'100%', textAlign:'center'}}>
-                            <img src={`${process.env.PUBLIC_URL}/images/listen.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/>
+                            {/* <img src={`${process.env.PUBLIC_URL}/images/listen.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/> */}
                             </div>
 
                             <div style={{ marginTop:'50px', borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{howToListen[lang]}</div>

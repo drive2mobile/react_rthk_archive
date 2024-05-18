@@ -1,3 +1,5 @@
+import localForage from 'localforage';
+
 async function getStorageItem(key) {
     return new Promise((resolve, reject) => {
         var storedItem = {};
@@ -94,4 +96,32 @@ async function getStorageItemDB(key) {
         };
     });
 }
-export { getStorageItem, setStorageItem, setStorageItemDB, getStorageItemDB }
+
+async function saveImageToIndexedDB(imageName, imageUrl) {
+    try {
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        await localForage.setItem(imageName, blob);
+        console.log('Image saved to IndexedDB');
+    } catch (error) {
+        console.error('Error saving image to IndexedDB:', error);
+    }
+}
+
+async function getImageFromIndexedDB(imageName) {
+    try {
+        const blob = await localForage.getItem(imageName);
+        if (!blob) {
+            console.error('Image not found in IndexedDB');
+            return null;
+        }
+        const url = URL.createObjectURL(blob);
+        return url;
+    } catch (error) {
+        console.error('Error retrieving image from IndexedDB:', error);
+        return null;
+    }
+}
+
+
+export { getStorageItem, setStorageItem, setStorageItemDB, getStorageItemDB, saveImageToIndexedDB, getImageFromIndexedDB }

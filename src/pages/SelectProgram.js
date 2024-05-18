@@ -7,7 +7,7 @@ import SpinnerFullscreen from '../ui_components/SpinnerFullscreen';
 import ToastAlert from '../ui_components/ToastAlert';
 import * as Icon from 'react-bootstrap-icons';
 import { selectProgram } from "../utilies/Locale";
-import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
+import { getImageFromIndexedDB, getStorageItemDB, saveImageToIndexedDB, setStorageItemDB } from "../utilies/LocalStorage";
 import { jsonFileSuffix, stationList, weekdayList } from "../utilies/Constants";
 import { AutoTextSize } from "auto-text-size";
 
@@ -17,6 +17,7 @@ const SelectProgram = ({lang}) => {
 
     const [bookmarkList, setBookmarkList] = useState({});
     const [displayList, setDisplayList] = useState([]);
+    const [imageList, setImageList] = useState({});
 
     const [selectedStation, setSelectedStation] = useState('radio1');
     const [selectedWeekday, setSelectedWeekday] = useState('1');
@@ -52,6 +53,8 @@ const SelectProgram = ({lang}) => {
 
     async function initialize()
     {
+        setShowLoading(true);
+
         const date = new Date();
         const currWeekday = date.getDay();
         setSelectedWeekday(currWeekday);
@@ -59,6 +62,23 @@ const SelectProgram = ({lang}) => {
         const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json${jsonFileSuffix}`);
         const newProgramList = await responsePrograms.json();
         setProgramList(newProgramList);
+
+        const newImageList = {};
+        for (const key in newProgramList)
+        {
+            const currStation = newProgramList[key];
+            for (var i=0 ; i<currStation.length ; i++)
+            {
+                const program_id = currStation[i]['program_id'];
+                const imageURL = await getImageFromIndexedDB(program_id);
+
+                if (imageURL != null)
+                    newImageList[program_id] = imageURL;
+                else
+                    await saveImageToIndexedDB(program_id, `${process.env.PUBLIC_URL}/images/${program_id}.jpg`);
+            }
+        }
+        setImageList(newImageList);
 
         if (urlParams.has('selectedStation'))
             setSelectedStation(urlParams.get('selectedStation'));
@@ -70,6 +90,7 @@ const SelectProgram = ({lang}) => {
         setBookmarkList(newBookmarkList);
 
         setTriggerRefreshList(true);
+        setShowLoading(false);
         setShowContent(true);
     }
 
@@ -210,7 +231,7 @@ const SelectProgram = ({lang}) => {
                                 >
                                     <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
                                             alignItems:'center', padding:'4px'}}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/${item['program_id']}.jpg`} 
+                                        <img src={imageList[item['program_id']]} 
                                             style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
                                         ></img>
                                     </div>

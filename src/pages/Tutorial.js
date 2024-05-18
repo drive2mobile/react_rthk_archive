@@ -95,10 +95,6 @@ const Tutorial = ({lang}) => {
                             <div style={{width:'100%', textAlign:'center'}}>
                             <img src={`${process.env.PUBLIC_URL}/images/sheep.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/>
                             </div>
-                            <div style={{ marginTop:'50px',borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{aboutMe[lang]}</div>
-                            <div style={{ margin:'5px', color:'#484848', fontSize:'16px'}}>
-                                {aboutMeDetail[lang]}
-                            </div>
                             
                             <div style={{ marginTop:'30px', borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{contactMe[lang]}</div>
                             <div style={{ margin:'5px', color:'#484848', fontSize:'16px'}}>

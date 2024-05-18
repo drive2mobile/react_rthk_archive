@@ -8,7 +8,7 @@ import ToastAlert from '../ui_components/ToastAlert';
 import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons';
 import { loadMore30EP, loadMore7EP, selectDateOrEP, download, downloadingPleaseDontLeave, downloadCompleted, cancel } from "../utilies/Locale";
-import { downloadM3u8Suffix, downloadURLSample, jsonFileSuffix } from "../utilies/Constants";
+import { downloadM3u8Suffix, downloadURLSample, hostURL, jsonFileSuffix } from "../utilies/Constants";
 
 const SelectDate = ({lang}) => {
     const navigate = useNavigate();
@@ -82,7 +82,7 @@ const SelectDate = ({lang}) => {
 
     async function initialize()
     {
-        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json${jsonFileSuffix}`);
+        const responsePrograms = await fetch(`${hostURL}/json_files/programs.json${jsonFileSuffix}`);
         const tempProgramList = await responsePrograms.json();
 
         var newProgramList = {};
@@ -338,7 +338,7 @@ const SelectDate = ({lang}) => {
                         {/* ==== PROGRAM NAME ===== */}
                         <div className={styles.programDetailContainer}>
                             <div style={{width:'120px'}}>
-                                <img src={`${process.env.PUBLIC_URL}/images/${programId}.jpg`} 
+                                <img src={`${hostURL}/images/${programId}.jpg`} 
                                     style={{height:'120px', width:'auto', padding:'10px', borderRadius:'15px'}}/>
                             </div>
                             <div style={{width:'calc(100% - 120px)'}}>{selectDateOrEP[lang]}</div>

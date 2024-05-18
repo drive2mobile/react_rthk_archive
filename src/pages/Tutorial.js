@@ -8,7 +8,7 @@ import ToastAlert from '../ui_components/ToastAlert';
 import * as Icon from 'react-bootstrap-icons';
 import { checkImageExistsInIndexedDB, getImageFromIndexedDB, getStorageItemDB, saveImageToIndexedDB, setStorageItemDB } from "../utilies/LocalStorage";
 import { aboutMe, aboutMeDetail, bookmarks, contactMe, contactMeDetail, howToListen, tutorial } from "../utilies/Locale";
-import { jsonFileSuffix } from "../utilies/Constants";
+import { hostURL, jsonFileSuffix } from "../utilies/Constants";
 
 const Tutorial = ({lang}) => {
     const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Tutorial = ({lang}) => {
 
     async function initialize()
     {
-        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json${jsonFileSuffix}`);
+        const responsePrograms = await fetch(`${hostURL}/json_files/programs.json${jsonFileSuffix}`);
         const tempProgramList = await responsePrograms.json();
         var newProgramList = {};
         for (const key in tempProgramList)
@@ -85,7 +85,7 @@ const Tutorial = ({lang}) => {
                         {/* ===== LEFT SECTION ===== */}
                         <div className={styles.leftSectionContainer}>
                             <div style={{width:'100%', textAlign:'center'}}>
-                            {/* <img src={`${process.env.PUBLIC_URL}/images/sheep.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/> */}
+                            <img src={`${hostURL}/images/sheep.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/>
                             </div>
                             
                             <div style={{ marginTop:'30px', borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{contactMe[lang]}</div>
@@ -97,7 +97,7 @@ const Tutorial = ({lang}) => {
                         {/* ===== RIGHT SECTION ===== */}
                         <div className={styles.rightSectionContainer}>
                             <div style={{width:'100%', textAlign:'center'}}>
-                            {/* <img src={`${process.env.PUBLIC_URL}/images/listen.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/> */}
+                            <img src={`${hostURL}/images/listen.png`} style={{textAlign:'center', height:'100px', width:'100px'}}/>
                             </div>
 
                             <div style={{ marginTop:'50px', borderBottom:'2px solid #bdffb9', color:'#484848', fontSize:'24px', fontWeight:'bold'}}>{howToListen[lang]}</div>

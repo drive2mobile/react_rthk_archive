@@ -8,7 +8,7 @@ import ToastAlert from '../ui_components/ToastAlert';
 import * as Icon from 'react-bootstrap-icons';
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
 import { bookmarks } from "../utilies/Locale";
-import { jsonFileSuffix } from "../utilies/Constants";
+import { hostURL, jsonFileSuffix } from "../utilies/Constants";
 import ReactPlayer from "react-player";
 
 const Bookmark = ({lang}) => {
@@ -32,7 +32,7 @@ const Bookmark = ({lang}) => {
 
     async function initialize()
     {
-        const responsePrograms = await fetch(`${process.env.PUBLIC_URL}/json_files/programs.json${jsonFileSuffix}`);
+        const responsePrograms = await fetch(`${hostURL}/json_files/programs.json${jsonFileSuffix}`);
         const tempProgramList = await responsePrograms.json();
         var newProgramList = {};
         for (const key in tempProgramList)
@@ -112,7 +112,7 @@ const Bookmark = ({lang}) => {
                                 >
                                     <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
                                             alignItems:'center', padding:'4px'}}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/${item['program_id']}.jpg`} 
+                                        <img src={`${hostURL}/images/${item['program_id']}.jpg`} 
                                             style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
                                         ></img>
                                     </div>

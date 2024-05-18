@@ -1,6 +1,8 @@
 const downloadURLSample = "https://rthkaod2022.akamaized.net/m4a/radio/archive/STATION/PROGRAM/m4a/DATE.m4a/";
 const downloadM3u8Suffix = "index_0_a.m3u8?";
 const jsonFileSuffix = "?date=20240422";
+const hostURL = "https://rthk-archive.vercel.app";
+// const hostURL = process.env.PUBLIC_URL;
 const weekdayList = [
     {
         "weekday_id": "0",
@@ -78,4 +80,4 @@ const stationList = [
     }
 ]
 
-export { downloadURLSample, downloadM3u8Suffix, jsonFileSuffix, weekdayList, stationList }
+export { downloadURLSample, downloadM3u8Suffix, jsonFileSuffix, weekdayList, stationList, hostURL }

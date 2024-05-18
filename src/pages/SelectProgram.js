@@ -8,7 +8,7 @@ import ToastAlert from '../ui_components/ToastAlert';
 import * as Icon from 'react-bootstrap-icons';
 import { selectProgram } from "../utilies/Locale";
 import { getImageFromIndexedDB, getStorageItemDB, saveImageToIndexedDB, setStorageItemDB } from "../utilies/LocalStorage";
-import { jsonFileSuffix, stationList, weekdayList } from "../utilies/Constants";
+import { hostURL, jsonFileSuffix, stationList, weekdayList } from "../utilies/Constants";
 import { AutoTextSize } from "auto-text-size";
 
 const SelectProgram = ({lang}) => {
@@ -63,22 +63,22 @@ const SelectProgram = ({lang}) => {
         const newProgramList = await responsePrograms.json();
         setProgramList(newProgramList);
 
-        const newImageList = {};
-        for (const key in newProgramList)
-        {
-            const currStation = newProgramList[key];
-            for (var i=0 ; i<currStation.length ; i++)
-            {
-                const program_id = currStation[i]['program_id'];
-                const imageURL = await getImageFromIndexedDB(program_id);
+        // const newImageList = {};
+        // for (const key in newProgramList)
+        // {
+        //     const currStation = newProgramList[key];
+        //     for (var i=0 ; i<currStation.length ; i++)
+        //     {
+        //         const program_id = currStation[i]['program_id'];
+        //         const imageURL = await getImageFromIndexedDB(program_id);
 
-                if (imageURL != null)
-                    newImageList[program_id] = imageURL;
-                else
-                    await saveImageToIndexedDB(program_id, `${process.env.PUBLIC_URL}/images/${program_id}.jpg`);
-            }
-        }
-        setImageList(newImageList);
+        //         if (imageURL != null)
+        //             newImageList[program_id] = imageURL;
+        //         else
+        //             await saveImageToIndexedDB(program_id, `${process.env.PUBLIC_URL}/images/${program_id}.jpg`);
+        //     }
+        // }
+        // setImageList(newImageList);
 
         if (urlParams.has('selectedStation'))
             setSelectedStation(urlParams.get('selectedStation'));
@@ -231,7 +231,8 @@ const SelectProgram = ({lang}) => {
                                 >
                                     <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
                                             alignItems:'center', padding:'4px'}}>
-                                        <img src={imageList[item['program_id']]} 
+                                        {/* <img src={imageList[item['program_id']]}  */}
+                                        <img src={`${hostURL}/images/${item['program_id']}.jpg`}
                                             style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
                                         ></img>
                                     </div>

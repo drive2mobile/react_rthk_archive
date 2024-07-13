@@ -9,7 +9,7 @@ import * as Icon from 'react-bootstrap-icons';
 import { getStorageItemDB, setStorageItemDB } from "../utilies/LocalStorage";
 import { bookmarks } from "../utilies/Locale";
 import { hostURL, jsonFileSuffix } from "../utilies/Constants";
-import ReactPlayer from "react-player";
+import ItemBookmark from "../ui_components/ItemBookmark";
 
 const Bookmark = ({lang}) => {
     const navigate = useNavigate();
@@ -105,32 +105,7 @@ const Bookmark = ({lang}) => {
                         <div className={styles.programContainer}>
                         <div className={styles.programSubContainer}>
                             {displayList.length > 0 && displayList.map((item, index) => (
-                                <div 
-                                    className={styles.program}
-                                    key={index}   
-                                    onClick={() => { navigate(`/selectdate?programID=${item['program_id']}&prevPage=bookmark`)}}
-                                >
-                                    <div style={{width:'80px', height:'50px', display:'flex', flexDirection:'column', 
-                                            alignItems:'center', padding:'4px'}}>
-                                        <img src={`${hostURL}/images/${item['program_id']}.jpg`} 
-                                            style={{ width: 'auto', height:'100%', borderRadius:'4px' }}
-                                        ></img>
-                                    </div>
-                                    <div style={{width:'calc(100% - 60px)'}}>
-                                        {item['program_name']}
-                                    </div>
-                                    <div style={{width:'60px', height:'50px', textAlign:'center', display:'flex', flexDirection:'column', justifyContent:'center'}}
-                                        onClick={async(e) => {
-                                            e.stopPropagation();
-                                            await addBookmark(item['program_id']);
-                                        }}
-                                    >
-                                        {bookmarkList.hasOwnProperty(item['program_id']) ? 
-                                            <Icon.StarFill style={{width:'20px', height:'20px', color:'#FBFA0D', margin:'auto'}}/> :
-                                            <Icon.Star style={{width:'20px', height:'20px', color:'#6C6C6C', margin:'auto'}}/>
-                                        }
-                                    </div>
-                                </div>     
+                                <ItemBookmark index={index} item={item} addBookmark={addBookmark} bookmarkList={bookmarkList}/>
                             ))}
                         </div>
                         </div>

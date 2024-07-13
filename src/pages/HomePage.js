@@ -21,24 +21,18 @@ const HomePage = ({lang, setLang}) => {
         <div className={styles.body}>
             <Fade in={true} appear={true} style={{ transitionDuration: '0.8s' }}>
                 <div>
-                    <div style={{width:'100%', height:'40px', lineHeight:'40px', display:'flex', flexDirection:'row', justifyContent:'right'}}>
-                        <div style={lang == 'tc' ?
-                            {width:'30px', color:'#484848', fontWeight:'bold', cursor:'pointer'} : 
-                            {width:'30px', color:'#979797', fontWeight:'normal', cursor:'pointer'}}
+                    <div className={styles.languageSelectionContainer}>
+                        <div className={styles.languageBtn} style={{'--cusBold': lang == 'tc' ? 'bold':'normal'}}
                             onClick={() => {changeLang('tc')}}
                         >
                             繁
                         </div>
-                        <div style={lang == 'sc' ?
-                            {width:'30px', color:'#484848', fontWeight:'bold', cursor:'pointer'} : 
-                            {width:'30px', color:'#979797', fontWeight:'normal', cursor:'pointer'}}
+                        <div className={styles.languageBtn} style={{'--cusBold': lang == 'sc' ? 'bold':'normal'}}
                             onClick={() => {changeLang('sc')}}
                         >
                             簡
                         </div>
-                        <div style={lang == 'en' ?
-                            {width:'30px', color:'#484848', fontWeight:'bold', marginRight:'10px', cursor:'pointer'} : 
-                            {width:'30px', color:'#979797', fontWeight:'normal', marginRight:'10px', cursor:'pointer'}}
+                        <div className={styles.languageBtn} style={{'--cusBold': lang == 'en' ? 'bold':'normal'}}
                             onClick={() => {changeLang('en')}}
                         >Eng</div>
                     </div>
@@ -46,9 +40,9 @@ const HomePage = ({lang, setLang}) => {
                     <div className={styles.contentContainer}>
 
                         <div className={styles.logoTitleContainer}>
-                            <img src={`${hostURL}/images/rthk_logo.png`} style={{ width: '50%', height: 'auto' }} />
-                            <div style={{ color: '#484848', fontSize: '25px', marginTop: '30px' }}>{rthkArchive[lang]}</div>
-                            <div style={{ color: '#484848', fontSize: '15px', marginTop: '20px', width:'80%', textAlign:'center' }}>{allContentAreFromInternet[lang]}</div>
+                            <img src={`${hostURL}/images/rthk_logo.png`} className={styles.mainLogo} />
+                            <div className={styles.mainTitle}>{rthkArchive[lang]}</div>
+                            <div className={styles.mainSubtitle}>{allContentAreFromInternet[lang]}</div>
                         </div>
 
                         <div className={styles.shortcutContainer}>
@@ -81,7 +75,7 @@ const HomePage = ({lang, setLang}) => {
                         </div>
 
                     </div>
-                    <div style={{ width: '100%', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', lineHeight: '40px' }}>
+                    <div className={styles.versionContainer}>
                         Beta 1.0
                     </div>
                 </div>

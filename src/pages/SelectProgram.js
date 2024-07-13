@@ -63,23 +63,6 @@ const SelectProgram = ({lang}) => {
         const newProgramList = await responsePrograms.json();
         setProgramList(newProgramList);
 
-        // const newImageList = {};
-        // for (const key in newProgramList)
-        // {
-        //     const currStation = newProgramList[key];
-        //     for (var i=0 ; i<currStation.length ; i++)
-        //     {
-        //         const program_id = currStation[i]['program_id'];
-        //         const imageURL = await getImageFromIndexedDB(program_id);
-
-        //         if (imageURL != null)
-        //             newImageList[program_id] = imageURL;
-        //         else
-        //             await saveImageToIndexedDB(program_id, `${process.env.PUBLIC_URL}/images/${program_id}.jpg`);
-        //     }
-        // }
-        // setImageList(newImageList);
-
         if (urlParams.has('selectedStation'))
             setSelectedStation(urlParams.get('selectedStation'));
 
@@ -165,7 +148,6 @@ const SelectProgram = ({lang}) => {
                 {/* ===== APP BAR ===== */}
                 <AppBar leftIcon={backBtn} Header={selectProgram[lang]} rightIcon={shareBtn}></AppBar>
 
-                
                 <Fade in={showContent} appear={true} style={{transitionDuration: '0.3s'}}>
                     <div className={styles.contentContainer}>
 

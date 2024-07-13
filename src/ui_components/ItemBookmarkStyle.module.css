@@ -1,0 +1,55 @@
+.program {
+    width: calc(100% - 8px);
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #e2e2e2;
+    line-height: 50px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.programImage{
+    width: 80px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+}
+
+.programActualImage{
+    width: auto;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.programName{
+    width: calc(100% - 60px);
+}
+
+.programBookmark{
+    width: 60px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.programBookmarkIconSelected{
+    width: 20px;
+    height: 20px;
+    color: #FBFA0D;
+    margin: auto;
+}
+
+.programBookmarkIconUnselected{
+    width: 20px;
+    height: 20px;
+    color: #6C6C6C;
+    margin: auto;
+}

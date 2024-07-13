@@ -1,6 +1,7 @@
 # React RTHK Archive
 
 A web application to download archive radio programms from RTHK.
+![Alt Text](screencap.PNG)
 
 ## Live Demo
 <https://rthk-archive.vercel.app>
